@@ -1,1 +1,9 @@
-
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+@import url(./components/App/App.css);
+@import url(./components/pages/Main/Main.css);
+@import url(./components/pages/Login/Login.css);
+@import url(./components/pages/Register/Register.css);
+@import url(./components/pages/Profile/Profile.css);
+@import url(./components/pages/Movies/Movies.css);
+@import url(./components/pages/SavedMovies/SavedMovies.css);
