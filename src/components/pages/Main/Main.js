@@ -1,9 +1,15 @@
 import React from "react";
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
 
-function Main() {
+function Main(props) {
+  const { loggedIn } = props;
   return (
-    <div>Main</div>
-  )
+    <>
+      <Header loggedIn={loggedIn} />
+      <Footer />
+    </>
+  );
 }
 
 export default Main;

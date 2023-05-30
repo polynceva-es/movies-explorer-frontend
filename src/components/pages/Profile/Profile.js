@@ -1,9 +1,14 @@
 import React from "react";
+import Header from "../../Header/Header";
 
-function Profile() {
+function Profile(props) {
+  const { loggedIn } = props;
   return (
-    <div>Profile</div>
-  )
+    <>
+      <Header loggedIn={loggedIn} />
+      <div>Profile</div>
+    </>
+  );
 }
 
 export default Profile;

@@ -1,9 +1,16 @@
 import React from "react";
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
 
-function SavedMovies() {
+function SavedMovies(props) {
+  const { loggedIn } = props;
   return (
-    <div>SavedMovies</div>
-  )
+    <>
+      <Header loggedIn={loggedIn} />
+      <div>SavedMovies</div>
+      <Footer />
+    </>
+  );
 }
 
 export default SavedMovies;

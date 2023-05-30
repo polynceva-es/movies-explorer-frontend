@@ -1,0 +1,103 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__btn-logo {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+  margin: 18px 70px;
+}
+
+.header__nav-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+}
+
+.header__nav-item {
+  list-style-type: none;
+}
+
+.header__nav-link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: none;
+  color: black;
+  margin: 0 10px;
+}
+
+.header__nav-link:hover,
+.header__btn-logo:hover,
+.header__btn-profile:hover,
+.header__btn-login:hover {
+  opacity: 0.7;
+}
+
+.header__nav-link_active {
+  font-weight: 500;
+}
+
+.header__nav-link_login {
+  font-size: 12px;
+}
+
+.header__btn-profile {
+  width: 100px;
+  height: 32px;
+  box-sizing: border-box;
+  background: none;
+  border: 2px solid;
+  border-color: rgba(170, 170, 170, 0.2);
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  margin-right: 70px;
+}
+
+.header__btn-profile-img {
+  margin: 10px 9px 12px;
+}
+
+.header__btn-text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.header__btn-text_profile {
+  font-size: 14px;
+  margin: 8px 12px 8px 0;
+}
+
+.header__btn-text_login {
+  font-size: 12px;
+}
+
+.header__btn-login {
+  margin: 0 70px 0 20px;
+  padding: 0;
+  background: #2BE080;
+  border-radius: 3px;
+  border: none;
+  width: 76px;
+  height: 32px;
+  cursor: pointer;
+}

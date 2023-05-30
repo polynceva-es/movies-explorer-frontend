@@ -1,9 +1,16 @@
 import React from "react";
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
 
-function Movies() {
+function Movies(props) {
+  const { loggedIn } = props;
   return (
-    <div>Movies</div>
-  )
+    <>
+      <Header loggedIn={loggedIn} />
+      <div>Movies</div>
+      <Footer />
+    </>
+  );
 }
 
 export default Movies;

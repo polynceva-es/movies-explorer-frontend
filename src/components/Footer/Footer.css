@@ -1,0 +1,36 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__line {
+  width: 100%;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.footer__caption {
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #A0A0A0;
+}
+
+.footer__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #c12323;
+}
+
+.footer__text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}

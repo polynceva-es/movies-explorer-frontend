@@ -7,3 +7,8 @@
 @import url(./components/pages/Profile/Profile.css);
 @import url(./components/pages/Movies/Movies.css);
 @import url(./components/pages/SavedMovies/SavedMovies.css);
+@import url(./components/pages/PageNotFound/PageNotFound.css);
+@import url(./components/Header/Header.css);
+
+
+@import url(./components/Footer/Footer.css);
