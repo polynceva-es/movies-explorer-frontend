@@ -3,6 +3,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin: 0 70px;
+  min-height: min-content;
 }
 
 .header__btn-logo {
@@ -100,3 +102,15 @@
   height: 32px;
   cursor: pointer;
 }
+
+/* @media screen and (max-width: 770px) {
+  .header {
+    margin: 0 30px 18px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .header {
+    margin: 0 14px 18px;
+  }
+} */

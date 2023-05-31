@@ -18,7 +18,7 @@ function Header(props) {
     navigate("/signin");
   }
   return (
-    <header className="header">
+    <header className="header page__container-small">
       <button onClick={goToMain} className="header__btn-logo">
         <img className="header__logo" src={logo} alt="Логотип" />
       </button>

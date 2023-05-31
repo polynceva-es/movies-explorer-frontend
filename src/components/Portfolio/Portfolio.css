@@ -1,0 +1,26 @@
+.portfolio {
+  margin: 100px auto 0;
+}
+
+.portfolio__list {
+  padding: 0;
+  margin: 0;
+}
+
+.portfolio__title {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #A0A0A0;
+  mix-blend-mode: normal;
+  margin-bottom: 30px;
+}
+
+.portfolio__list-item {
+  list-style-type: none;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.portfolio__list-item:last-child {
+  border-bottom: none
+}

@@ -1,12 +1,19 @@
 .page {
-  max-width: 1140px;
+  max-width: 1280px;
   min-width: 320px;
   min-height: 100%;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   background-color: #FFFFFF;
   color: #000000;
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
+}
+
+.page__container-small {
+  max-width: 1140px;
+}
+
+.page__container-big {
+  max-width: 1200px;
 }

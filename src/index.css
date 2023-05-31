@@ -9,6 +9,14 @@
 @import url(./components/pages/SavedMovies/SavedMovies.css);
 @import url(./components/pages/PageNotFound/PageNotFound.css);
 @import url(./components/Header/Header.css);
-
-
 @import url(./components/Footer/Footer.css);
+@import url(./components/Promo/Promo.css);
+@import url(./components/NavTab/NavTab.css);
+@import url(./components/AboutProject/AboutProject.css);
+@import url(./components/Techs/Techs.css);
+@import url(./components/AboutMe/AboutMe.css);
+@import url(./components/Portfolio/Portfolio.css);
+@import url(./components/Title/Title.css);
+@import url(./components/PortfolioLink/PortfolioLink.css);
+@import url(./components/MainContent/MainContent.css);
+
