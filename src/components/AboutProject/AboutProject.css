@@ -1,0 +1,61 @@
+.about-project {
+  margin: 70px auto 100px;
+}
+
+.about-project__tabl {
+  margin-bottom: 110px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  column-gap: 20px;
+  row-gap: 26px;
+}
+
+.about-project__tabl-title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+}
+
+.about-project__tabl-text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.about-project__date {
+  display: grid;
+  grid-template-columns: 228px auto;
+  grid-template-rows: 36px auto;
+  row-gap: 14px;
+}
+
+.about-project__date-text {
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-project__date-text_bold {
+  font-weight: 400;
+}
+
+.about-project__date-text_light {
+  font-weight: 500;
+  color: #A0A0A0;
+}
+
+.about-project__date-text_back {
+  background: #2BE080;
+}
+
+.about-project__date-text_front {
+  background: #F2F2F2;
+}

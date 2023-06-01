@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0 70px;
+  margin: 0 70px 15px;
   min-height: min-content;
 }
 
