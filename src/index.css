@@ -19,4 +19,6 @@
 @import url(./components/Title/Title.css);
 @import url(./components/PortfolioLink/PortfolioLink.css);
 @import url(./components/MainContent/MainContent.css);
+@import url(./components/SearchForm/SearchForm.css);
+@import url(./components/FilterCheckbox/FilterCheckbox.css);
 
