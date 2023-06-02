@@ -21,4 +21,9 @@
 @import url(./components/MainContent/MainContent.css);
 @import url(./components/SearchForm/SearchForm.css);
 @import url(./components/FilterCheckbox/FilterCheckbox.css);
-
+@import url(./components/MoviesCardList/MoviesCardList.css);
+@import url(./components/MoviesCard/MoviesCard.css);
+@import url(./components/ButtonSave/ButtonSave.css);
+@import url(./components/ButtonIsLiked/ButtonIsLiked.css);
+@import url(./components/ButtonDelete/ButtonDelete.css);
+@import url(./components/ButtonMore/ButtonMore.css);

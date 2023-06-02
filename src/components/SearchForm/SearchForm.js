@@ -7,7 +7,7 @@ function SearchForm(props) {
     console.log("search");
   }
   return (
-    <section className="search-form page__container-small">
+    <section className="search-form">
       <form>
         <div className="search-form__container">
           <input className="search-form__input" placeholder="Фильм"></input>

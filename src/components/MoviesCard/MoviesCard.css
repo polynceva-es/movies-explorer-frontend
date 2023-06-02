@@ -1,0 +1,21 @@
+.movie-card {
+  max-width: 360px;
+  min-height: 215px;
+  border-radius: 6px;
+  margin: 0;
+  background-color: aquamarine;
+  position: relative;
+}
+
+.movie-card__btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.movie-card__btn:hover {
+  opacity: 0.8;
+}

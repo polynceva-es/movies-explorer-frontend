@@ -2,14 +2,17 @@ import React from "react";
 import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
 import SearchForm from "../../SearchForm/SearchForm";
+import MoviesCardList from "../../MoviesCardList/MoviesCardList";
 
 function SavedMovies(props) {
   const { loggedIn } = props;
   return (
     <>
       <Header loggedIn={loggedIn} />
-      <SearchForm />
-      <div>SavedMovies</div>
+      <main className="saved-movies">
+        <SearchForm />
+        <MoviesCardList />
+      </main>
       <Footer />
     </>
   );
