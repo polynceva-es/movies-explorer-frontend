@@ -6,7 +6,12 @@ function Profile(props) {
   return (
     <>
       <Header loggedIn={loggedIn} />
-      <div>Profile</div>
+      <main className="profile">
+        <h1>Привет, Виталий!</h1>
+
+        <button className="profile__btn">Редактировать</button>
+        <button className="profile__btn profile__btn_logout">Выйти из аккаунта</button>
+      </main>
     </>
   );
 }

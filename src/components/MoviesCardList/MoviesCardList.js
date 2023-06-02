@@ -1,6 +1,5 @@
 import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
-import ButtonMore from "../ButtonMore/ButtonMore";
 
 function MoviesCardList() {
   const cards = Array.apply(null, Array(5)).map(() => {});
@@ -11,7 +10,6 @@ function MoviesCardList() {
           <MoviesCard />
         ))}
       </section>
-      <ButtonMore />
     </>
   );
 }

@@ -1,6 +1,7 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/fonts.css);
 @import url(./components/App/App.css);
+@import url(./components/PreLoader/Preloader.css);
 @import url(./components/pages/Main/Main.css);
 @import url(./components/pages/Login/Login.css);
 @import url(./components/pages/Register/Register.css);

@@ -3,6 +3,8 @@ import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
 import SearchForm from "../../SearchForm/SearchForm";
 import MoviesCardList from "../../MoviesCardList/MoviesCardList";
+import ButtonMore from "../../ButtonMore/ButtonMore";
+// import Preloader from "../../PreLoader/Preloader";
 
 function Movies(props) {
   const { loggedIn } = props;
@@ -12,6 +14,8 @@ function Movies(props) {
       <main className="movies">
         <SearchForm />
         <MoviesCardList />
+        <ButtonMore />
+        {/* <Preloader /> */}
       </main>
       <Footer />
     </>
