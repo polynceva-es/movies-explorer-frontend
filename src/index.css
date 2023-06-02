@@ -10,6 +10,7 @@
 @import url(./components/pages/SavedMovies/SavedMovies.css);
 @import url(./components/pages/PageNotFound/PageNotFound.css);
 @import url(./components/Header/Header.css);
+@import url(./components/HeaderLogo/HeaderLogo.css);
 @import url(./components/Footer/Footer.css);
 @import url(./components/Promo/Promo.css);
 @import url(./components/NavTab/NavTab.css);
@@ -28,3 +29,5 @@
 @import url(./components/ButtonIsLiked/ButtonIsLiked.css);
 @import url(./components/ButtonDelete/ButtonDelete.css);
 @import url(./components/ButtonMore/ButtonMore.css);
+@import url(./components/Form/Form.css);
+@import url(./components/FormCaption/FormCaption.css);;

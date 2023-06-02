@@ -11,12 +11,12 @@ function Profile(props) {
         <form className="profile__form">
           <label className="profile__label">
             <div className="profile__label-container">
-              <label for="#name" className="profile__input-label">
+              <label for="#profile-name" className="profile__input-label">
                 Имя
               </label>
               <input
                 className="profile__input"
-                id="name"
+                id="profile-name"
                 name="name"
                 type="text"
                 value="Виталий"
@@ -26,12 +26,12 @@ function Profile(props) {
           </label>
           <label className="profile__label">
             <div className="profile__label-container">
-              <label for="#email" className="profile__input-label">
+              <label for="#profile-email" className="profile__input-label">
                 E-mail
               </label>
               <input
                 className="profile__input"
-                id="email"
+                id="profile-email"
                 name="email"
                 type="text"
                 value="pochta@yandex.ru"

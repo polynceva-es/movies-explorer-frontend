@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import logo from "../../images/logo.svg";
+import HeaderLogo from "../HeaderLogo/HeaderLogo";
 import profileLogo from "../../images/icon__COLOR_icon-main.svg";
 
 function Header(props) {
@@ -11,18 +11,12 @@ function Header(props) {
   function goToProfile() {
     navigate("/profile");
   }
-  function goToMain() {
-    navigate("/");
-  }
   function goToLogin() {
     navigate("/signin");
   }
   return (
     <header className="header page__container-small">
-      <button onClick={goToMain} className="header__btn-logo">
-        <img className="header__logo" src={logo} alt="Логотип" />
-      </button>
-
+      <HeaderLogo />
       {loggedIn ? (
         <nav>
           {/* Is Login */}
