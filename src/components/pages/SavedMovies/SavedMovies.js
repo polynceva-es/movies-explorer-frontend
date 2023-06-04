@@ -11,7 +11,7 @@ function SavedMovies(props) {
       <Header loggedIn={loggedIn} />
       <main className="saved-movies">
         <SearchForm />
-        <MoviesCardList />
+        <MoviesCardList page="saved-movies"/>
       </main>
       <Footer />
     </>

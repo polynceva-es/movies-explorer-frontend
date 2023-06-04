@@ -21,3 +21,25 @@
   width: 29px;
   height: 17px;
 }
+
+@media screen and (max-width: 770px) {
+  .portfolio-link {
+    font-size: 28px;
+  }
+
+  .portfolio-link__logo {
+    width: 27px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .portfolio-link {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .portfolio-link__logo {
+    width: 18px;
+    height: 12px;
+  }
+}

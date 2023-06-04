@@ -39,7 +39,7 @@ function Profile(props) {
             </div>
             <span className="profile__input-error"></span>
           </label>
-          <span className="profile__input-error"></span>
+          <span className="profile__input-error">При обновлении профиля произошла ошибка.</span>
           <button className="profile__btn">Редактировать</button>
         </form>
         <button className="profile__btn profile__btn_logout">

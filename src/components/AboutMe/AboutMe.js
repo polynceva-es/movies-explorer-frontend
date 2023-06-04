@@ -5,8 +5,9 @@ import photo from "../../images/photo.jpg";
 function AboutMe(props) {
   return (
     <>
-      <Title title="Студент" />
+      <Title title="Студент" id="about-me"/>
       <section className="about-me page__container-small">
+      <img className="about-me__photo" src={photo} alt="Фотография" />
         <article className="about-me__info">
           <div>
             <h3 className="about-me__name">Екатерина</h3>
@@ -28,7 +29,6 @@ function AboutMe(props) {
             Github
           </a>
         </article>
-        <img className="about-me__photo" src={photo} alt="Фотография" />
       </section>
     </>
   );

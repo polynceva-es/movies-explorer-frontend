@@ -1,5 +1,5 @@
 .about-project {
-  margin: 70px auto 100px;
+  margin: 70px 70px 100px;
 }
 
 .about-project__tabl {
@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
-  column-gap: 20px;
+  column-gap: 40px;
   row-gap: 26px;
 }
 
@@ -58,4 +58,26 @@
 
 .about-project__date-text_front {
   background: #F2F2F2;
+}
+
+@media screen and (max-width: 770px) {
+  .about-project {
+    margin: 70px 50px 90px;
+  }
+  .about-project__tabl {
+    margin-bottom: 93px;
+    column-gap: 30px;
+    row-gap: 22px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .about-project {
+    margin: 60px 18px 70px;
+  }
+  .about-project__tabl {
+    margin-bottom: 60px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 }

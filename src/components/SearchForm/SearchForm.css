@@ -28,8 +28,6 @@
 }
 .search-form__input:focus {
   outline: none;
-  border: 1px solid #3456F3;
-  border-radius: 48px;
 }
 
 .search-form__submit-btn {
@@ -45,4 +43,9 @@
   color: #FFFFFF;
   margin-left: 10px;
   padding: 0;
+  cursor: pointer;
+}
+
+.search-form__submit-btn:hover {
+  opacity: 0.8;
 }

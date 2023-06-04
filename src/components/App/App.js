@@ -10,27 +10,27 @@ import PageNotFound from "../pages/PageNotFound/PageNotFound"
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  // const [loggedIn, setLoggedIn] = React.useState(true);
   return (
     <>
       <Routes>
         <Route
           path="/"
-          element={<Main loggedIn={loggedIn}/> }
+          element={<Main loggedIn={false}/> }
         />
         <Route path="/signin" element={<Login/>}/>
         <Route path="/signup" element={<Register/>}/>
         <Route
           path="/profile"
-          element={<Profile loggedIn={loggedIn}/>}
+          element={<Profile loggedIn={true}/>}
         />
         <Route
           path="/movies"
-          element={<Movies loggedIn={loggedIn}/>}
+          element={<Movies loggedIn={true} />}
         />
         <Route
           path="/saved-movies"
-          element={<SavedMovies loggedIn={loggedIn}/> }
+          element={<SavedMovies loggedIn={true} /> }
         />
         <Route path="*" element={<PageNotFound/>} />
       </Routes>

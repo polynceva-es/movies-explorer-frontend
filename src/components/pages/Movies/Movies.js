@@ -13,9 +13,9 @@ function Movies(props) {
       <Header loggedIn={loggedIn} />
       <main className="movies">
         <SearchForm />
-        <MoviesCardList />
-        <ButtonMore />
         {/* <Preloader /> */}
+        <MoviesCardList page="movies" />
+        <ButtonMore />
       </main>
       <Footer />
     </>

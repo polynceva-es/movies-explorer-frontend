@@ -1,5 +1,5 @@
 .portfolio {
-  margin: 100px auto 0;
+  margin: 100px 70px 125px;
 }
 
 .portfolio__list {
@@ -23,4 +23,27 @@
 
 .portfolio__list-item:last-child {
   border-bottom: none
+}
+
+
+@media screen and (max-width: 770px) {
+  .portfolio {
+    margin: 91px 50px 90px;
+  }
+  .portfolio__title {
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .portfolio {
+    margin: 70px 14px 70px;
+  }
+
+  .portfolio__title {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
 }

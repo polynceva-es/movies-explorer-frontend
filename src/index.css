@@ -11,6 +11,8 @@
 @import url(./components/pages/PageNotFound/PageNotFound.css);
 @import url(./components/Header/Header.css);
 @import url(./components/HeaderLogo/HeaderLogo.css);
+@import url(./components/HeaderNavLogin/HeaderNavLogin.css);
+@import url(./components/HeaderNavLogout/HeaderNavLogout.css);
 @import url(./components/Footer/Footer.css);
 @import url(./components/Promo/Promo.css);
 @import url(./components/NavTab/NavTab.css);

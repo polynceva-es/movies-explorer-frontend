@@ -5,6 +5,8 @@
   position: relative;
 }
 
+
+
 .movie-card__btn {
   position: absolute;
   top: 14px;
@@ -12,10 +14,18 @@
   cursor: pointer;
   border: none;
   padding: 0;
+  visibility: hidden;
+  transition: visibility .3s;
 }
 
 .movie-card__btn:hover {
   opacity: 0.8;
+
+}
+
+.movie-card:hover .movie-card__btn {
+  visibility: visible;
+  transition: visibility .3s;
 }
 
 .movie-card__figure {
