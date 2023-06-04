@@ -3,7 +3,7 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   padding-top: 66px;
-  margin: 0 70px;
+  margin: 0 auto;
 }
 
 .about-me__info {
@@ -80,7 +80,7 @@
   }
 
   .about-me__about {
-    margin: 0 0 87px 0;
+    margin: 0 0 87px -10px;
   }
 
   .about-me__photo {
@@ -92,6 +92,8 @@
 @media screen and (max-width: 530px) {
   .about-me {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0 14px;
     padding-top: 40px;
   }
@@ -99,7 +101,7 @@
   .about-me__name {
     font-size: 30px;
     line-height: 36px;
-    margin: 0 0 20px;
+    margin: 43px 0 20px;
   }
 
   .about-me__prof,
@@ -109,11 +111,12 @@
   }
 
   .about-me__about {
-    margin: 0 0 40px 0;
+    margin: 0 0 55px 0;
   }
 
   .about-me__photo {
     width: 292px;
     height: 352px;
+    margin-top: 18px;
   }
 }

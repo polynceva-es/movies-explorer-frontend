@@ -5,16 +5,19 @@
   letter-spacing: -0.04em;
   padding-top: 110px;
   padding-bottom: 22px;
-  margin: 0 70px;
+  margin: 0 auto;
   border-bottom: 1px solid #000000;
   background: none;
 }
 
 @media screen and (max-width: 770px) {
   .title {
-    padding-top: 90px;
-    padding-bottom: 23px;
+    padding-top: 100px;
+    padding-bottom: 21px;
     margin: 0 50px;
+  }
+  .title__techs {
+    margin: 0 10px;
   }
 }
 

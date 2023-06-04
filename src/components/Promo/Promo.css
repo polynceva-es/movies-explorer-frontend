@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   padding: 30px 0;
-  margin: 0 40px;
+  margin: 0 auto;
 }
 
 .promo__title {
@@ -31,25 +31,23 @@
   .promo__title {
     font-size: 40px;
     line-height: 52px;
-    margin: 320px 0 314px 0;
+    margin: 329px 0 314px 0;
     max-width: 680px;
   }
 
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 530px) {
+  .promo {
+    margin: 0 14px;
+    padding: 17px 0;
+    max-height: 586px;
+  }
+
   .promo__title {
     font-size: 29px;
     line-height: 37px;
     margin: 203px 0 212px 0;
     max-width: 292px;
-  }
-}
-
-@media screen and (max-width: 330px) {
-  .promo {
-    margin: 0 14px;
-    padding: 17px 0;
-    max-height: 586px;
   }
 }
