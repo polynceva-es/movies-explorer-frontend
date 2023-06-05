@@ -5,14 +5,8 @@ import HeaderNavLogin from "../HeaderNavLogin/HeaderNavLogin";
 import HeaderNavLogout from "../HeaderNavLogout/HeaderNavLogout";
 
 function Header(props) {
-  const { loggedIn, isMenuOpen, handleMenuOpen } = props;
-  const navigate = useNavigate();
-  function goToProfile() {
-    navigate("/profile");
-  }
-  function goToLogin() {
-    navigate("/signin");
-  }
+  const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin } = props;
+
   return (
     <header className="header page__container-small">
       <HeaderLogo />

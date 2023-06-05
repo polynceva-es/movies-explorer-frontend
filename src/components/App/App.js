@@ -14,6 +14,14 @@ function App() {
   function handleMenuOpen() {
     setIsMenuOpen(!isMenuOpen);
   }
+
+  const navigate = useNavigate();
+  function goToProfile() {
+    navigate("/profile");
+  }
+  function goToLogin() {
+    navigate("/signin");
+  }
   return (
     <>
       <Routes>
@@ -27,6 +35,8 @@ function App() {
               loggedIn={true}
               isMenuOpen={isMenuOpen}
               handleMenuOpen={handleMenuOpen}
+              goToProfile={goToProfile}
+              goToLogin={goToLogin}
             />
           }
         />
@@ -37,6 +47,8 @@ function App() {
               loggedIn={true}
               isMenuOpen={isMenuOpen}
               handleMenuOpen={handleMenuOpen}
+              goToProfile={goToProfile}
+              goToLogin={goToLogin}
             />
           }
         />
@@ -47,6 +59,8 @@ function App() {
               loggedIn={true}
               isMenuOpen={isMenuOpen}
               handleMenuOpen={handleMenuOpen}
+              goToProfile={goToProfile}
+              goToLogin={goToLogin}
             />
           }
         />

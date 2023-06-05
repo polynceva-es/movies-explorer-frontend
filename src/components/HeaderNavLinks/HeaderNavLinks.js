@@ -7,17 +7,17 @@ function HeaderNavLinks(props) {
   const navLinkClassName = ({ isActive }) =>
     `links__link ${isActive ? "links__link_active" : ""}`;
   const linksClassName = `links ${isMenuOpen ? "links_open" : ""}`;
-  const linkClassName = `links__link ${
-    !isMenuOpen ? "links__link_disable" : ""
-  }`;
+  // const linkClassName = `links__link ${
+  //   !isMenuOpen ? "links__link_disable" : ""
+  // }`;
 
   return (
     <ul className={linksClassName}>
-      <li className="links__item">
+      {/* <li className="links__item">
         <NavLink to="/" className={linkClassName}>
           Главная
         </NavLink>
-      </li>
+      </li> */}
       <li className="links__item">
         <NavLink to="/movies" className={navLinkClassName}>
           Фильмы

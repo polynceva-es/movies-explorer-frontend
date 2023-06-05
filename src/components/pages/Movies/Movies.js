@@ -7,13 +7,15 @@ import ButtonMore from "../../ButtonMore/ButtonMore";
 // import Preloader from "../../PreLoader/Preloader";
 
 function Movies(props) {
-  const { loggedIn, isMenuOpen, handleMenuOpen } = props;
+  const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin } = props;
   return (
     <>
       <Header
         loggedIn={loggedIn}
         isMenuOpen={isMenuOpen}
         handleMenuOpen={handleMenuOpen}
+        goToProfile={goToProfile}
+        goToLogin={goToLogin}
       />
       <main className="movies">
         <SearchForm />

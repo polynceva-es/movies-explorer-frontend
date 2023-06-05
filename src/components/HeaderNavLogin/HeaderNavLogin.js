@@ -6,7 +6,7 @@ function HeaderNavLogin(props) {
   const { goToProfile, isMenuOpen, handleMenuOpen } = props;
 
   return (
-    <nav>
+    <nav className="">
       {/* Is Login */}
       <BurgerButton isMenuOpen={isMenuOpen} handleMenuOpen={handleMenuOpen} />
       <HeaderNavLinks goToProfile={goToProfile} isMenuOpen={isMenuOpen} />
