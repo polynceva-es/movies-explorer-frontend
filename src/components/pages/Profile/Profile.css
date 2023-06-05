@@ -85,8 +85,8 @@
   line-height: 16px;
   margin: 8px auto;
   cursor: pointer;
-  width: 300px;
-  height: 15px;
+  /* width: 300px;
+  height: 15px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,4 +103,33 @@
 .profile__btn_logout {
   font-weight: 500;
   color: #FF3055;
+}
+
+@media screen and (max-width: 770px) {
+  .profile__title {
+    margin: 200px 0 80px;
+  }
+
+  .profile__label:last-of-type {
+    margin-bottom: 170px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .profile__title {
+    margin: 60px 0 63px;
+  }
+
+  .profile__label:last-of-type {
+    margin-bottom: 338px;
+  }
+
+  .profile__form {
+    width: 260px;
+  }
+
+  .profile__btn {
+    font-size: 12px;
+    line-height: 15px;
+  }
 }

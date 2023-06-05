@@ -7,7 +7,7 @@
 }
 
 .filter-checkbox__label {
-  margin-left: 14px;
+  margin: 0 14px;
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
@@ -57,4 +57,16 @@ input:checked+.filter-checkbox__slider {
 input:checked+.filter-checkbox__slider::before {
   transform: translateX(16px);
   background-color: white;
+}
+
+@media screen and (max-width: 770px) {
+  .filter-checkbox {
+    flex-direction: row-reverse;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .filter-checkbox {
+    justify-content: center;
+  }
 }

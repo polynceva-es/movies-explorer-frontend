@@ -9,7 +9,7 @@ function Login() {
         title="Рады видеть!"
         children={
           <>
-            <label className="form form__container">
+            <label className="form">
               <label for="#reg-email" className="form__label">
                 E-mail
               </label>
@@ -21,7 +21,7 @@ function Login() {
               />
               <span className="form__input-error"></span>
             </label>
-            <label className="form form__container">
+            <label className="form">
               <label for="#reg-pass" className="form__label">
                 Пароль
               </label>
