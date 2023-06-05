@@ -5,7 +5,7 @@ import HeaderNavLogin from "../HeaderNavLogin/HeaderNavLogin";
 import HeaderNavLogout from "../HeaderNavLogout/HeaderNavLogout";
 
 function Header(props) {
-  const { loggedIn } = props;
+  const { loggedIn, isMenuOpen, handleMenuOpen } = props;
   const navigate = useNavigate();
   function goToProfile() {
     navigate("/profile");
@@ -17,7 +17,11 @@ function Header(props) {
     <header className="header page__container-small">
       <HeaderLogo />
       {loggedIn ? (
-        <HeaderNavLogin goToProfile={goToProfile} />
+        <HeaderNavLogin
+          goToProfile={goToProfile}
+          isMenuOpen={isMenuOpen}
+          handleMenuOpen={handleMenuOpen}
+        />
       ) : (
         <HeaderNavLogout goToLogin={goToLogin} />
       )}

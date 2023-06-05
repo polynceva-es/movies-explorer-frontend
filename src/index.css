@@ -32,4 +32,8 @@
 @import url(./components/ButtonDelete/ButtonDelete.css);
 @import url(./components/ButtonMore/ButtonMore.css);
 @import url(./components/Form/Form.css);
-@import url(./components/FormCaption/FormCaption.css);;
+@import url(./components/FormCaption/FormCaption.css);
+@import url(./components/BurgerButton/BurgerButton.css);
+@import url(./components/ProfileButton/ProfileButton.css);
+@import url(./components/HeaderNavLinks/HeaderNavLinks.css);
+@import url(./components/BurgerMenu/BurgerMenu.css);

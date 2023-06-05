@@ -8,3 +8,15 @@
   row-gap: 60px;
   justify-items: center;
 }
+/*
+@media screen and (max-width: 770px) {
+  .movies-card-list {
+    grid-template-columns: repeat(auto-fill, minmax(339px, 1fr));
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .movies-card-list {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+} */

@@ -1,11 +1,17 @@
 import React from "react";
 import Header from "../../Header/Header";
+import BurgerMenu from "../../BurgerMenu/BurgerMenu";
 
 function Profile(props) {
-  const { loggedIn } = props;
+  const { loggedIn, isMenuOpen, handleMenuOpen } = props;
   return (
     <>
-      <Header loggedIn={loggedIn} />
+    <BurgerMenu/>
+      <Header
+        loggedIn={loggedIn}
+        isMenuOpen={isMenuOpen}
+        handleMenuOpen={handleMenuOpen}
+      />
       <main className="profile">
         <h1 className="profile__title">Привет, Виталий!</h1>
         <form className="profile__form">
@@ -39,7 +45,9 @@ function Profile(props) {
             </div>
             <span className="profile__input-error"></span>
           </label>
-          <span className="profile__input-error">При обновлении профиля произошла ошибка.</span>
+          <span className="profile__input-error">
+            При обновлении профиля произошла ошибка.
+          </span>
           <button className="profile__btn">Редактировать</button>
         </form>
         <button className="profile__btn profile__btn_logout">
