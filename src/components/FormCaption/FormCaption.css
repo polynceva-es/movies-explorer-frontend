@@ -16,3 +16,10 @@
   color: #3456F3;
   text-decoration: none;
 }
+
+@media screen and (max-width: 530px) {
+  .form-caption__text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

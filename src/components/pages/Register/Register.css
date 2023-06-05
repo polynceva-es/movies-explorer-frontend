@@ -5,3 +5,9 @@
   justify-content: center;
   margin-top: 70px;
 }
+
+@media screen and (max-width: 530px) {
+  .register {
+    margin-top: 43px;
+  }
+}
