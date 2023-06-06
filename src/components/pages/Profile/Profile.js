@@ -40,6 +40,7 @@ function Profile(props) {
                 name="name"
                 type="text"
                 value="Виталий"
+                required
               />
             </div>
             <span className="profile__input-error"></span>
@@ -55,6 +56,7 @@ function Profile(props) {
                 name="email"
                 type="text"
                 value="pochta@yandex.ru"
+                required
               />
             </div>
             <span className="profile__input-error"></span>

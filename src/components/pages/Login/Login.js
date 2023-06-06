@@ -18,6 +18,7 @@ function Login() {
                 id="reg-email"
                 name="email"
                 type="email"
+                required
               />
               <span className="form__input-error"></span>
             </label>
@@ -30,6 +31,7 @@ function Login() {
                 id="reg-pass"
                 name="password"
                 type="password"
+                required
               />
               <span className="form__input-error"></span>
             </label>

@@ -55,10 +55,6 @@
   width: 100%;
 }
 
-.profile__input:focus {
-  outline: none;
-}
-
 .profile__input::placeholder {
   color: #A0A0A0;
 }
