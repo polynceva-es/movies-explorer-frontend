@@ -5,11 +5,24 @@ import SearchForm from "../../SearchForm/SearchForm";
 import MoviesCardList from "../../MoviesCardList/MoviesCardList";
 import ButtonMore from "../../ButtonMore/ButtonMore";
 // import Preloader from "../../PreLoader/Preloader";
+import BurgerMenu from "../../BurgerMenu/BurgerMenu";
 
 function Movies(props) {
-  const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin, margin } = props;
+  const {
+    loggedIn,
+    isMenuOpen,
+    handleMenuOpen,
+    goToProfile,
+    goToLogin,
+    margin,
+  } = props;
   return (
     <>
+      <BurgerMenu
+        isMenuOpen={isMenuOpen}
+        handleMenuOpen={handleMenuOpen}
+        goToProfile={goToProfile}
+      />
       <Header
         loggedIn={loggedIn}
         isMenuOpen={isMenuOpen}

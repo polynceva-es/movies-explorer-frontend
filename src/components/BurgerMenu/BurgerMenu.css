@@ -1,70 +1,85 @@
 .menu {
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: fixed;
-  z-index: 3;
-  display: none;
-  transform: translateX(-100%);
-  transition: all 0.5s;
+  /* display: none; */
+  opacity: 0;
+  height: 0;
 }
 
-.menu_open {
-  display: flex;
-  transform: translateX(0);
-  transition: all 0.5s;
+@media screen and (max-width: 770px) {
+  .menu {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 3;
+    /* display: none; */
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 1s;
+  }
+
+  .menu_open {
+    /* display: flex; */
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 1s;
+  }
+
+  .menu__container {
+    width: 530px;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 22px 0 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu__list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu__item {
+    list-style-type: none;
+    margin-bottom: 28px;
+  }
+
+  .menu__item:first-of-type {
+  margin-top: 134px;
 }
 
-.menu__container {
-  width: 530px;
-  height: 100%;
-  background-color: white;
-  position: fixed;
-  top: 0;
-  right: 0;
-  box-sizing: border-box;
-  padding: 22px 0 90px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.menu__list {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.menu__item {
-  list-style-type: none;
-  margin-bottom: 28px;
-}
-
-/* .menu__item:first-of-type {
-  margin-top: 105px;
-} */
-
-/* .menu__item:last-of-type {
+  /* .menu__item:last-of-type {
   margin-bottom: 200px;
 } */
 
-.menu__link {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: center;
-  margin: 0 90px;
-}
+  .menu__link {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    margin: 0 90px;
+  }
 
-.menu__link_active {
-  text-decoration: underline;
+  .menu__link:hover {
+    opacity: 0.8;
+  }
+
+  .menu__link_active {
+    padding-bottom: 4px;
+    border-bottom: 2px solid black;
+  }
 }
 
 @media screen and (max-width: 530px) {

@@ -3,11 +3,24 @@ import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
 import SearchForm from "../../SearchForm/SearchForm";
 import MoviesCardList from "../../MoviesCardList/MoviesCardList";
+import BurgerMenu from "../../BurgerMenu/BurgerMenu";
 
 function SavedMovies(props) {
-  const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin, margin } = props;
+  const {
+    loggedIn,
+    isMenuOpen,
+    handleMenuOpen,
+    goToProfile,
+    goToLogin,
+    margin,
+  } = props;
   return (
     <>
+      <BurgerMenu
+        isMenuOpen={isMenuOpen}
+        handleMenuOpen={handleMenuOpen}
+        goToProfile={goToProfile}
+      />
       <Header
         loggedIn={loggedIn}
         isMenuOpen={isMenuOpen}

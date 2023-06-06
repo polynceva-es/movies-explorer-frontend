@@ -6,12 +6,15 @@
   width: 44px;
   height: 44px;
   background: none;
-  display: none;
+  /* display: none; */
+  opacity: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: opacity 1s;
-  /* margin: 15px 30px; */
+  /* transition: opacity 1s; */
+  position: fixed;
+  top: 15px;
+  right: 30px;
 }
 
 .burger-button:hover {
@@ -70,6 +73,7 @@
 @media screen and (max-width: 770px) {
   .burger-button {
     display: flex;
+    opacity: 1;
   }
 }
 
