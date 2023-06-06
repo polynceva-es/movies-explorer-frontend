@@ -72,3 +72,11 @@
     display: flex;
   }
 }
+
+@media screen and (max-width: 530px) {
+  .burger-button {
+    width: 40px;
+    height: 43px;
+    padding: 12.5px 9px 10px;
+  }
+}
