@@ -1,7 +1,9 @@
 .menu {
-  /* display: none; */
   opacity: 0;
   height: 0;
+}
+.menu__container {
+    display: none;
 }
 
 @media screen and (max-width: 770px) {
@@ -13,14 +15,12 @@
     left: 0;
     position: fixed;
     z-index: 3;
-    /* display: none; */
     opacity: 0;
     transform: translateX(100%);
     transition: transform 1s;
   }
 
   .menu_open {
-    /* display: flex; */
     opacity: 1;
     transform: translateX(0);
     transition: transform 1s;

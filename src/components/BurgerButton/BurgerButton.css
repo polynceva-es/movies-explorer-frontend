@@ -17,11 +17,6 @@
   right: 30px;
 }
 
-.burger-button:hover {
-  opacity: 0.8;
-  transition: opacity 1s;
-}
-
 .burger-button__icon {
   position: relative;
   display: block;
@@ -74,6 +69,10 @@
   .burger-button {
     display: flex;
     opacity: 1;
+  }
+
+  .burger-button:hover {
+    opacity: 0.8;
   }
 }
 
