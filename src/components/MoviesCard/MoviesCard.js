@@ -16,7 +16,7 @@ if(page === "saved-movies") {
   button = <ButtonSave />
 };
   return (
-    <article className="movie-card">
+    <article className="movie-card" >
       {button}
       <figure className="movie-card__figure">
         <a href={trailerLink} className="movie-card__link">

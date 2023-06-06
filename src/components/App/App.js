@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Main loggedIn={false} />} />
+        <Route path="/" element={<Main loggedIn={false} goToLogin={goToLogin} margin={true}/>} />
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route
@@ -37,6 +37,7 @@ function App() {
               handleMenuOpen={handleMenuOpen}
               goToProfile={goToProfile}
               goToLogin={goToLogin}
+              margin={false}
             />
           }
         />
@@ -49,6 +50,7 @@ function App() {
               handleMenuOpen={handleMenuOpen}
               goToProfile={goToProfile}
               goToLogin={goToLogin}
+              margin={false}
             />
           }
         />
@@ -61,6 +63,7 @@ function App() {
               handleMenuOpen={handleMenuOpen}
               goToProfile={goToProfile}
               goToLogin={goToLogin}
+              margin={false}
             />
           }
         />

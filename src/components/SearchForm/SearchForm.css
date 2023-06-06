@@ -49,3 +49,14 @@
 .search-form__submit-btn:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width: 530px) {
+  .search-form__input {
+    font-size: 18px;
+    line-height: 22px;
+  }
+.search-form__container {
+  margin: 81px 5px 40px;
+  padding-bottom: 9px;
+}
+}

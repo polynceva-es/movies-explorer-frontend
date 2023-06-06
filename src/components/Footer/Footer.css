@@ -44,20 +44,12 @@
 }
 
 @media screen and (max-width: 770px) {
-  .footer {
-    margin: 0 30px;
-  }
-
   .footer__caption {
     padding: 60px 0 20px;
   }
 }
 
 @media screen and (max-width: 540px) {
-  .footer {
-    margin: 0 10px;
-  }
-
   .footer__caption {
     padding: 43px 0 20px;
     font-size: 12px;

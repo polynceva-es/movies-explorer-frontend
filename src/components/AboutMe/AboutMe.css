@@ -60,13 +60,18 @@
 
 @media screen and (max-width: 770px) {
   .about-me {
-    margin: 0 50px;
+    column-gap: 59px;
+    margin: 0 20px;
   }
 
   .about-me__name {
     font-size: 40px;
     line-height: 40px;
     margin: 0 0 16px;
+  }
+
+  .about-me__info {
+    column-gap: 59px;
   }
 
   .about-me__prof,
@@ -94,7 +99,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 14px;
     padding-top: 40px;
   }
 

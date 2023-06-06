@@ -21,7 +21,6 @@
 
 @media screen and (max-width: 770px) {
   .promo {
-    margin: 0 20px;
     padding: 20px 0;
     max-height: 834px;
     font-size: 40px;
@@ -39,9 +38,9 @@
 
 @media screen and (max-width: 530px) {
   .promo {
-    margin: 0 14px;
     padding: 17px 0;
     max-height: 586px;
+    margin: 0 20px;
   }
 
   .promo__title {

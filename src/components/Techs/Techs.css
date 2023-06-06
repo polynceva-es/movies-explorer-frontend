@@ -31,8 +31,6 @@
   padding: 0 0 100px;
   margin: 0 auto;
   display: grid;
-  /* grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(60px, 1fr)); */
   grid-template-columns: repeat(auto-fit, 90px);
   column-gap: 10px;
   row-gap: 10px;
@@ -58,7 +56,7 @@
 
 @media screen and (max-width: 770px) {
   .techs {
-    margin: 0 10px -8px;
+    margin: 0 0 -8px;
   }
 
   .techs__container {
@@ -90,7 +88,7 @@
 
 @media screen and (max-width: 530px) {
   .techs {
-    margin: 0 18px;
+    margin: 0;
   }
 
   .techs__container {

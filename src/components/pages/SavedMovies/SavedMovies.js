@@ -5,7 +5,7 @@ import SearchForm from "../../SearchForm/SearchForm";
 import MoviesCardList from "../../MoviesCardList/MoviesCardList";
 
 function SavedMovies(props) {
-  const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin } = props;
+  const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin, margin } = props;
   return (
     <>
       <Header
@@ -14,6 +14,7 @@ function SavedMovies(props) {
         handleMenuOpen={handleMenuOpen}
         goToProfile={goToProfile}
         goToLogin={goToLogin}
+        margin={margin}
       />
       <main className="saved-movies">
         <SearchForm />

@@ -8,6 +8,7 @@
   color: #000000;
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
+  box-sizing: border-box;
 }
 
 .page__container-small {
@@ -16,4 +17,16 @@
 
 .page__container-big {
   max-width: 1200px;
+}
+
+@media screen and (max-width: 770px) {
+  .page {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .page {
+    padding: 0 14px;
+  }
 }

@@ -42,8 +42,7 @@
   background-color: #000;
   cursor: pointer;
   display: block;
-  max-width: 360px;
-  min-height: 215px;
+  width: 100%;
   border-radius: 6px;
   object-fit: cover;
 }
@@ -80,14 +79,18 @@
   margin: 9px 0 0;
 }
 
-/* @media screen and (max-width: 770px) {
+@media screen and (max-width: 770px) {
   .movie-card {
-width: 339px;
+    width: 339px;
   }
 }
 
 @media screen and (max-width: 530px) {
   .movie-card {
-width: 300px;
+    width: 300px;
   }
-} */
+
+  .movie-card__figcaption {
+    padding: 5px 0;
+  }
+}

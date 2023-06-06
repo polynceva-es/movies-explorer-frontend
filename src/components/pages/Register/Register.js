@@ -10,7 +10,7 @@ function Register() {
         children={
           <>
             <label className="form">
-              <label for="#reg-name" className="form__label">
+              <label htmlFor="#reg-name" className="form__label">
                 Имя
               </label>
               <input
@@ -22,7 +22,7 @@ function Register() {
               <span className="form__input-error"></span>
             </label>
             <label className="form">
-              <label for="#reg-email" className="form__label">
+              <label htmlFor="#reg-email" className="form__label">
                 E-mail
               </label>
               <input
@@ -34,7 +34,7 @@ function Register() {
               <span className="form__input-error"></span>
             </label>
             <label className="form">
-              <label for="#reg-pass" className="form__label">
+              <label htmlFor="#reg-pass" className="form__label">
                 Пароль
               </label>
               <input

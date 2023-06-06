@@ -28,7 +28,7 @@
 
 @media screen and (max-width: 770px) {
   .portfolio {
-    margin: 91px 50px 90px;
+    margin: 91px 20px 90px;
   }
   .portfolio__title {
     font-size: 18px;
@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 530px) {
   .portfolio {
-    margin: 70px 14px 70px;
+    margin: 70px 20px 70px;
   }
 
   .portfolio__title {

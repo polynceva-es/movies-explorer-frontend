@@ -9,8 +9,8 @@ function MoviesCardList(props) {
   return (
     <>
       <section className="movies-card-list">
-        {cards.map((card) => (
-          <MoviesCard page={props.page}
+        {cards.map((card, i) => (
+          <MoviesCard key={i} page={props.page}
           isLikedProps={card} />
         ))}
       </section>

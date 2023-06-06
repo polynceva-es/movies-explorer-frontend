@@ -9,12 +9,16 @@
 
 @media screen and (max-width: 770px) {
   .header {
-    margin: 0 30px 18px;
+    margin: 0 0 18px;
   }
 }
 
 @media screen and (max-width: 530px) {
   .header {
-    margin: 0 14px 11px;
+    margin: 0 0 11px;
+  }
+
+  .header_margin {
+    margin: 0 20px 11px;
   }
 }

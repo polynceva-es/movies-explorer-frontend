@@ -68,5 +68,11 @@ input:checked+.filter-checkbox__slider::before {
 @media screen and (max-width: 530px) {
   .filter-checkbox {
     justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .filter-checkbox__label {
+    font-size: 11px;
+    margin: 0 5px;
   }
 }

@@ -14,7 +14,7 @@
   .title {
     padding-top: 100px;
     padding-bottom: 21px;
-    margin: 0 50px;
+    margin: 0 20px;
   }
   .title__techs {
     margin: 0 10px;
@@ -27,6 +27,5 @@
     line-height: 22px;
     padding-top: 70px;
     padding-bottom: 28px;
-    margin: 0 18px;
   }
 }

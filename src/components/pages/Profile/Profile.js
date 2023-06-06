@@ -3,7 +3,7 @@ import Header from "../../Header/Header";
 import BurgerMenu from "../../BurgerMenu/BurgerMenu";
 
 function Profile(props) {
-  const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin } = props;
+  const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin, margin } = props;
   return (
     <>
     <BurgerMenu isMenuOpen={isMenuOpen} handleMenuOpen={handleMenuOpen} goToProfile={goToProfile}/>
@@ -13,6 +13,7 @@ function Profile(props) {
         handleMenuOpen={handleMenuOpen}
         goToProfile={goToProfile}
         goToLogin={goToLogin}
+        margin={margin}
       />
       <main className="profile">
         <h1 className="profile__title">Привет, Виталий!</h1>

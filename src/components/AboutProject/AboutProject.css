@@ -6,7 +6,6 @@
   margin-bottom: 110px;
   display: grid;
   grid-template-columns: repeat(2, auto);
-  /* grid-template-rows: repeat(2, auto); */
   column-gap: 23px;
   row-gap: 26px;
 }
@@ -63,7 +62,7 @@
 
 @media screen and (max-width: 770px) {
   .about-project {
-    margin: 72px 50px 83px;
+    margin: 72px 20px 83px;
   }
 
   .about-project__tabl {
@@ -84,7 +83,7 @@
 
 @media screen and (max-width: 530px) {
   .about-project {
-    margin: 60px 18px 70px;
+    margin: 60px 20px 70px;
   }
 
   .about-project__tabl {

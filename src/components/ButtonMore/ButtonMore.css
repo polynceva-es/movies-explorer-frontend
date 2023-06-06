@@ -19,3 +19,11 @@
 .btn-more:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width: 530px) {
+  .btn-more {
+    width: 240px;
+    height: 36px;
+    margin-bottom: 116px;
+  }
+}
