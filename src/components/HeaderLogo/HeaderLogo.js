@@ -8,8 +8,8 @@ function HeaderLogo() {
     navigate("/");
   }
   return (
-    <button onClick={goToMain} className="header-logo__btn">
-      <img className="header-logo__logo" src={logo} alt="Логотип" />
+    <button onClick={goToMain} className="logo-btn">
+      <img className="logo-btn__logo" src={logo} alt="Логотип" />
     </button>
   );
 }

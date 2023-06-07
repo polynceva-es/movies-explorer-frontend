@@ -1,4 +1,4 @@
-.header-logo__btn {
+.logo-btn {
   border: none;
   background: none;
   cursor: pointer;
@@ -7,11 +7,11 @@
   height: 38px;
 }
 
-.header-logo__logo {
+.logo-btn__logo {
 
   margin: 0px;
 }
 
-.header-logo__logo:hover {
+.logo-btn__logo:hover {
   opacity: 0.7;
 }

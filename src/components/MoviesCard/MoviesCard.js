@@ -20,7 +20,7 @@ if(page === "saved-movies") {
       {button}
       <figure className="movie-card__figure">
         <a href={trailerLink} className="movie-card__link">
-          <img className="movie-card__image" src={image} alt={nameRU} />
+          <img className="movie-card__image" src={image} alt="Кадр фильма" />
         </a>
         <figcaption className="movie-card__figcaption">
           <p className="movie-card__title">33 слова о дизайне</p>

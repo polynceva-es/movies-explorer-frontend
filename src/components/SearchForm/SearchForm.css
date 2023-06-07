@@ -1,5 +1,6 @@
 .search-form {
-  /* margin: 0 auto; */
+  margin: 0 70px;
+  padding-top: 1px;
 }
 
 .search-form__container {
@@ -50,7 +51,17 @@
   opacity: 0.8;
 }
 
+@media screen and (max-width: 770px) {
+  .search-form {
+    margin: 0 30px;
+  }
+}
+
 @media screen and (max-width: 530px) {
+  .search-form {
+    margin: 0 14px;
+  }
+
   .search-form__input {
     font-size: 18px;
     line-height: 22px;
