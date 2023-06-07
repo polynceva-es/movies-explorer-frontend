@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 396px;
 }
 
 .form__container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  max-width: 396px;
 }
 
 .form__title {

@@ -79,7 +79,7 @@
   margin: 9px 0 0;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 910px) {
   .movie-card {
     width: 339px;
   }

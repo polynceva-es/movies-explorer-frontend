@@ -11,7 +11,7 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 910px) {
   .movies-card-list {
     grid-template-columns: repeat(auto-fit, 339px);
     row-gap: 47px;

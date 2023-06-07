@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function HeaderNavLogout(props) {
   const { goToLogin } = props;
   return (
-    <nav>
+    <nav className="nav-logout">
       {/* Not Login */}
       <ul className="nav-logout__list">
         <li className="nav-logout__list-item">
