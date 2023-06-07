@@ -6,8 +6,8 @@
   width: 44px;
   height: 44px;
   background: none;
-  /* display: none; */
-  opacity: 0;
+  display: none;
+  /* opacity: 0; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -54,13 +54,13 @@
 
 .burger-button__icon_close::after {
   transform: rotate(45deg);
-  transition: transform 1s;
+  /* transition: transform 1s; */
   top: 0;
 }
 
 .burger-button__icon_close::before {
   transform: rotate(-45deg);
-  transition: transform 1s;
+  /* transition: transform 1s; */
   top: 0;
 }
 
@@ -68,7 +68,7 @@
 @media screen and (max-width: 770px) {
   .burger-button {
     display: flex;
-    opacity: 1;
+    /* opacity: 1; */
   }
 
   .burger-button:hover {

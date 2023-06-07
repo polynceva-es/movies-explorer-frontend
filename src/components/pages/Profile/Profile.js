@@ -29,36 +29,32 @@ function Profile(props) {
       <main className="profile">
         <h1 className="profile__title">Привет, Виталий!</h1>
         <form className="profile__form">
-          <label className="profile__label">
-            <div className="profile__label-container">
-              <label for="#profile-name" className="profile__input-label">
-                Имя
-              </label>
+          <label htmlFor="profile-name" className="profile__label">
+            <span className="profile__container">
+              <span className="profile__span">Имя</span>
               <input
                 className="profile__input"
                 id="profile-name"
                 name="name"
                 type="text"
-                value="Виталий"
+                defaultValue="Виталий"
                 required
               />
-            </div>
+            </span>
             <span className="profile__input-error"></span>
           </label>
-          <label className="profile__label">
-            <div className="profile__label-container">
-              <label for="#profile-email" className="profile__input-label">
-                E-mail
-              </label>
+          <label htmlFor="profile-email" className="profile__label">
+            <span className="profile__container">
+              <span className="profile__span">E-mail</span>
               <input
                 className="profile__input"
                 id="profile-email"
                 name="email"
                 type="text"
-                value="pochta@yandex.ru"
+                defaultValue="pochta@yandex.ru"
                 required
               />
-            </div>
+            </span>
             <span className="profile__input-error"></span>
           </label>
           <span className="profile__input-error">

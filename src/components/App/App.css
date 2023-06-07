@@ -1,9 +1,9 @@
 .page {
   max-width: 1280px;
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 100%;
   margin: 0 auto;
-  display: grid;
+  /* display: grid; */
   background-color: #FFFFFF;
   color: #000000;
   font-family: 'Inter', 'Arial', sans-serif;

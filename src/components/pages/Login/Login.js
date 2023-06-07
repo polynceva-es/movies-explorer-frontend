@@ -9,10 +9,8 @@ function Login() {
         title="Рады видеть!"
         children={
           <>
-            <label className="form">
-              <label htmlFor="#reg-email" className="form__label">
-                E-mail
-              </label>
+            <label htmlFor="reg-email" className="form__label">
+              E-mail
               <input
                 className="form__input"
                 id="reg-email"
@@ -22,10 +20,8 @@ function Login() {
               />
               <span className="form__input-error"></span>
             </label>
-            <label className="form">
-              <label htmlFor="#reg-pass" className="form__label">
-                Пароль
-              </label>
+            <label htmlFor="reg-pass" className="form__label">
+              Пароль
               <input
                 className="form__input"
                 id="reg-pass"

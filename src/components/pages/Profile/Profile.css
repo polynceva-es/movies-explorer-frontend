@@ -18,9 +18,19 @@
   flex-direction: column;
 }
 
+.profile__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
 .profile__label {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .profile__label:first-of-type {
@@ -31,19 +41,11 @@
   margin-bottom: 180px;
 }
 
-.profile__label-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 17px;
-  width: 100%;
-}
-
-.profile__input-label {
+.profile__span {
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
-  width: 141px;
+  width: 100px;
 }
 
 .profile__input {
@@ -117,7 +119,7 @@
   }
 
   .profile__label:last-of-type {
-    margin-bottom: 338px;
+    margin-bottom: 340px;
   }
 
   .profile__form {

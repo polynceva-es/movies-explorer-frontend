@@ -49,7 +49,6 @@
   font-size: 10px;
   line-height: 12px;
   color: #A0A0A0;
-  margin-bottom: 11px;
 }
 
 .form__input {
@@ -62,6 +61,7 @@
   height: 46px;
   border: none;
   padding: 15px;
+  margin-top: 11px;
   box-sizing: border-box;
 }
 
@@ -86,6 +86,7 @@
   .form {
     max-width: 260px;
   }
+
   .form__container {
     align-items: center;
   }
@@ -95,6 +96,7 @@
     margin-bottom: 80px;
     margin-top: 30px;
   }
+
   .form__input,
   .form__btn-submit {
     width: 260px;

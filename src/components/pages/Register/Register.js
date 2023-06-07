@@ -9,10 +9,8 @@ function Register() {
         title="Добро пожаловать!"
         children={
           <>
-            <label className="form">
-              <label htmlFor="#reg-name" className="form__label">
-                Имя
-              </label>
+            <label htmlFor="reg-name" className="form__label">
+              Имя
               <input
                 className="form__input"
                 id="reg-name"
@@ -22,10 +20,9 @@ function Register() {
               />
               <span className="form__input-error"></span>
             </label>
-            <label className="form">
-              <label htmlFor="#reg-email" className="form__label">
-                E-mail
-              </label>
+
+            <label htmlFor="reg-email" className="form__label">
+              E-mail
               <input
                 className="form__input"
                 id="reg-email"
@@ -35,10 +32,9 @@ function Register() {
               />
               <span className="form__input-error"></span>
             </label>
-            <label className="form">
-              <label htmlFor="#reg-pass" className="form__label">
-                Пароль
-              </label>
+
+            <label htmlFor="reg-pass" className="form__label">
+              Пароль
               <input
                 className="form__input form__input_error"
                 id="reg-pass"
@@ -53,11 +49,7 @@ function Register() {
         labelSubmit="Зарегистрироваться"
         param="reg"
       />
-      <FormCaption
-        text="Уже зарегистрированы?"
-        to="/signin"
-        linkText="Войти"
-      />
+      <FormCaption text="Уже зарегистрированы?" to="/signin" linkText="Войти" />
     </section>
   );
 }

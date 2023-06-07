@@ -40,7 +40,7 @@
   .promo {
     padding: 17px 0;
     max-height: 586px;
-    margin: 0 20px;
+    /* margin: 0 20px; */
   }
 
   .promo__title {

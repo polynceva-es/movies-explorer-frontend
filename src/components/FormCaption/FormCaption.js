@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function FormCaption(props) {
   return (
     <article className="form-caption">
-      <p className="form-caption__text">{props.text}</p>
+      <h3 className="form-caption__text">{props.text}</h3>
       <Link to={props.to} className="form-caption__text form-caption__text_link">{props.linkText}</Link>
     </article>
   );
