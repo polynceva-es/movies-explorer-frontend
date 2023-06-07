@@ -85,6 +85,7 @@
 @media screen and (max-width: 530px) {
   .form {
     max-width: 260px;
+    align-items: center;
   }
 
   .form__container {

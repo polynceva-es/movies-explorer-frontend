@@ -27,9 +27,9 @@
 .search-form__input::placeholder {
   color: #A0A0A0;
 }
-.search-form__input:focus {
+/* .search-form__input:focus {
   outline: none;
-}
+} */
 
 .search-form__submit-btn {
   width: 59px;
