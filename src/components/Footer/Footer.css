@@ -79,7 +79,7 @@
     color: #A0A0A0;
   }
 
-  .footer__container {
+  .footer__text-container {
     flex-direction: column;
   }
 
@@ -88,7 +88,7 @@
     margin-bottom: 20px;
   }
 
-  .footer__container_end {
+  .footer__text-container_end {
     padding: 30px 0;
   }
 }
