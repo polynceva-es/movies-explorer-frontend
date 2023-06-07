@@ -5,9 +5,9 @@ import photo from "../../images/photo.jpg";
 function AboutMe(props) {
   return (
     <>
-      <Title title="Студент" id="about-me"/>
-      <section className="about-me page__container-small">
-      <img className="about-me__photo" src={photo} alt="Фотография" />
+      <Title title="Студент" id="about-me" />
+      <section className="about-me">
+        <img className="about-me__photo" src={photo} alt="Фотография профиля" />
         <article className="about-me__info">
           <div>
             <h3 className="about-me__name">Екатерина</h3>

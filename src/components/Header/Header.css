@@ -3,22 +3,22 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto 15px;
+  margin: 18px 70px;
   min-height: min-content;
 }
 
 @media screen and (max-width: 770px) {
   .header {
-    margin: 0 0 18px;
+    margin: 18px 30px;
   }
 }
 
 @media screen and (max-width: 530px) {
   .header {
-    margin: 0 0 11px;
+    margin: 18px 14px;
   }
 
   .header_margin {
-    margin: 0 20px 11px;
+    margin-bottom: 11px;
   }
 }

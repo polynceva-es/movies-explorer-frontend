@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="footer page__container-small">
+    <footer className="footer">
       <p className="footer__caption">
         Учебный проект Яндекс.Практикум х BeatFilm.
       </p>

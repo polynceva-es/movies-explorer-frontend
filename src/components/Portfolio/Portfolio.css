@@ -1,5 +1,5 @@
 .portfolio {
-  margin: 100px auto 107px;
+  margin: 100px 70px 107px;
 }
 
 .portfolio__list {
@@ -16,19 +16,19 @@
   margin-bottom: 30px;
 }
 
-.portfolio__list-item {
+.portfolio__item {
   list-style-type: none;
   border-bottom: 1px solid #E8E8E8;
 }
 
-.portfolio__list-item:last-child {
+.portfolio__item:last-child {
   border-bottom: none
 }
 
 
 @media screen and (max-width: 770px) {
   .portfolio {
-    margin: 91px 20px 90px;
+    margin: 91px 50px 90px;
   }
   .portfolio__title {
     font-size: 18px;
@@ -39,7 +39,7 @@
 
 @media screen and (max-width: 530px) {
   .portfolio {
-    margin: 70px 20px 70px;
+    margin: 70px 14px 70px;
   }
 
   .portfolio__title {

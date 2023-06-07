@@ -5,7 +5,7 @@ import HeaderNavLogout from "../HeaderNavLogout/HeaderNavLogout";
 
 function Header(props) {
   const { loggedIn, isMenuOpen, handleMenuOpen, goToProfile, goToLogin, margin } = props;
-  const headerClassName = `header page__container-small ${margin ? "header_margin" : ""}`
+  const headerClassName = `header ${margin ? "header_margin" : ""}`
   return (
     <header className={headerClassName}>
       <HeaderLogo />

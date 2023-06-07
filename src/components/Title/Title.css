@@ -3,21 +3,16 @@
   font-size: 22px;
   line-height: 27px;
   letter-spacing: -0.04em;
-  padding-top: 110px;
-  padding-bottom: 22px;
-  margin: 0 auto;
+  padding: 110px 0 22px;
+  margin: 0 70px;
   border-bottom: 1px solid #000000;
   background: none;
 }
 
 @media screen and (max-width: 770px) {
   .title {
-    padding-top: 100px;
-    padding-bottom: 21px;
-    margin: 0 20px;
-  }
-  .title__techs {
-    margin: 0 10px;
+    padding: 90px 0 21px;
+    margin: 0 50px;
   }
 }
 
@@ -25,7 +20,7 @@
   .title {
     font-size: 18px;
     line-height: 22px;
-    padding-top: 70px;
-    padding-bottom: 28px;
+    padding: 70px 0 28px;
+    margin: 0 18px;
   }
 }

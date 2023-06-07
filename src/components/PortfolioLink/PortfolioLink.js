@@ -10,7 +10,7 @@ function PortfolioLink(props) {
         rel="noreferrer"
       >
         {props.text}
-        <img className="portfolio-link__logo" src={arrow} alt="Стрелочка" />
+        <img className="portfolio-link__logo" src={arrow} alt="Логотип-стрелка" />
       </a>
   );
 }

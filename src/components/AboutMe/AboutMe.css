@@ -3,7 +3,7 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   padding-top: 66px;
-  margin: 0 auto;
+  margin: 0 70px;
 }
 
 .about-me__info {
@@ -61,7 +61,7 @@
 @media screen and (max-width: 770px) {
   .about-me {
     column-gap: 59px;
-    margin: 0 20px;
+    margin: 0 50px;
   }
 
   .about-me__name {
@@ -100,6 +100,7 @@
     justify-content: center;
     align-items: center;
     padding-top: 40px;
+    margin: 0 14px;
   }
 
   .about-me__name {
