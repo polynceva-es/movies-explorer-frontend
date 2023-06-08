@@ -10,7 +10,7 @@ function SearchForm(props) {
     <section className="search-form">
       <form>
         <div className="search-form__container">
-          <input className="search-form__input" placeholder="Фильм"></input>
+          <input className="search-form__input" placeholder="Фильм" required></input>
           <button
             className="search-form__submit-btn"
             type="submit"
