@@ -1,0 +1,25 @@
+.form-caption {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-caption__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #A0A0A0;
+  margin: 16px 3px;
+}
+
+.form-caption__text_link {
+  color: #3456F3;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 530px) {
+  .form-caption__text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

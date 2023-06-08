@@ -1,0 +1,29 @@
+.btn-more {
+  width: 320px;
+  height: 36px;
+  background: #F9F9F9;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  border: none;
+  padding: 0;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.btn-more:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 530px) {
+  .btn-more {
+    width: 240px;
+    height: 36px;
+    margin-bottom: 116px;
+  }
+}

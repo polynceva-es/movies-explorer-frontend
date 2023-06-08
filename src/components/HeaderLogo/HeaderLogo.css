@@ -1,0 +1,17 @@
+.logo-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+}
+
+.logo-btn__logo {
+
+  margin: 0px;
+}
+
+.logo-btn__logo:hover {
+  opacity: 0.7;
+}

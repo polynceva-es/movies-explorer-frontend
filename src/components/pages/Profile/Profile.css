@@ -1,0 +1,133 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 60px 0 106px;
+}
+
+.profile__form {
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.profile__label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profile__label:first-of-type {
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.profile__label:last-of-type {
+  margin-bottom: 180px;
+}
+
+.profile__span {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  width: 100px;
+}
+
+.profile__input {
+  border: none;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: right;
+  width: 100%;
+}
+
+.profile__input::placeholder {
+  color: #A0A0A0;
+}
+
+.profile__input-error {
+  width: 100%;
+  min-height: 16px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  color: #FF004C;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile__btn {
+  border: none;
+  background: none;
+  padding: 0;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 8px auto;
+  cursor: pointer;
+  /* width: 300px;
+  height: 15px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__btn:hover {
+  opacity: 0.8;
+}
+
+.profile__btn_disable {
+  color: #C2C2C2;
+}
+
+.profile__btn_logout {
+  font-weight: 500;
+  color: #FF3055;
+}
+
+@media screen and (max-width: 770px) {
+  .profile__title {
+    margin: 200px 0 80px;
+  }
+
+  .profile__label:last-of-type {
+    margin-bottom: 170px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .profile__title {
+    margin: 60px 0 63px;
+  }
+
+  .profile__label:last-of-type {
+    margin-bottom: 340px;
+  }
+
+  .profile__form {
+    width: 260px;
+  }
+
+  .profile__btn {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

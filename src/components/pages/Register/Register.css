@@ -1,0 +1,13 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+@media screen and (max-width: 530px) {
+  .register {
+    margin-top: 43px;
+  }
+}

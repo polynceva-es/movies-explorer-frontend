@@ -1,0 +1,134 @@
+.about-me {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding-top: 66px;
+  margin: 0 70px;
+}
+
+.about-me__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.about-me__name {
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  margin: 0 0 18px;
+}
+
+.about-me__prof {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  mix-blend-mode: normal;
+  margin: 0 0 26px;
+  max-width: 600px;
+}
+
+.about-me__about {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  mix-blend-mode: normal;
+  margin: 0 0 99px 0;
+  max-width: 600px;
+}
+
+.about-me__link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.about-me__link:hover {
+  opacity: 0.7;
+}
+
+.about-me__photo {
+  width: 270px;
+  height: 327px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 770px) {
+  .about-me {
+    column-gap: 59px;
+    margin: 0 50px;
+  }
+
+  .about-me__name {
+    font-size: 40px;
+    line-height: 40px;
+    margin: 0 0 16px;
+  }
+
+  .about-me__info {
+    column-gap: 59px;
+  }
+
+  .about-me__prof,
+  .about-me__about {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .about-me__prof {
+    margin: 0px 0 20px;
+  }
+
+  .about-me__about {
+    margin: 0 0 87px -10px;
+  }
+
+  .about-me__photo {
+    width: 255px;
+    height: 307px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .about-me {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .about-me__photo {
+    width: 292px;
+    height: 352px;
+    margin-top: 18px;
+  }
+  .about-me__name {
+    margin: 43px 0 20px;
+  }
+
+}
+
+@media screen and (max-width: 530px) {
+  .about-me {
+    margin: 0 14px;
+  }
+
+  .about-me__name {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .about-me__prof,
+  .about-me__about {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about-me__about {
+    margin: 0 0 55px 0;
+  }
+}

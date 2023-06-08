@@ -1,0 +1,96 @@
+.movie-card {
+  width: 360px;
+  border-radius: 6px;
+  margin: 0;
+  position: relative;
+}
+
+.movie-card__btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  visibility: hidden;
+  transition: visibility .3s;
+}
+
+.movie-card__btn:hover {
+  opacity: 0.8;
+
+}
+
+.movie-card:hover .movie-card__btn {
+  visibility: visible;
+  transition: visibility .3s;
+}
+
+.movie-card__figure {
+  margin: 0;
+}
+
+.movie-card__link {
+  background-color: red;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.movie-card__image {
+  background-color: #000;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.movie-card__figcaption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 0 12px;
+}
+
+.movie-card__title {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 9px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movie-card__duration {
+  width: 52px;
+  height: 18px;
+  background-color: #F9F9F9;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 10px;
+  color: #A0A0A0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 9px 0 0;
+}
+
+@media screen and (max-width: 910px) {
+  .movie-card {
+    width: 339px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .movie-card {
+    width: 300px;
+  }
+
+  .movie-card__figcaption {
+    padding: 5px 0;
+  }
+}

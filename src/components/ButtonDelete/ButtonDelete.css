@@ -1,0 +1,10 @@
+.btn-delete {
+  width: 21px;
+  height: 21px;
+  border-radius: 50px;
+  background-color: #F9F9F9;
+  background-image: url(../../images/icon__COLOR_icon-delete.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
