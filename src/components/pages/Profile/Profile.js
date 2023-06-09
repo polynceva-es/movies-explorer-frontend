@@ -9,6 +9,9 @@ function Profile(props) {
     handleMenuOpen,
     goToProfile,
     goToLogin,
+    signOut,
+    currentUser,
+    errorMessage,
     margin,
   } = props;
   return (
@@ -27,7 +30,7 @@ function Profile(props) {
         margin={margin}
       />
       <main className="profile">
-        <h1 className="profile__title">Привет, Виталий!</h1>
+        <h1 className="profile__title">Привет, {currentUser.name}!</h1>
         <form className="profile__form">
           <label htmlFor="profile-name" className="profile__label">
             <span className="profile__container">
@@ -37,7 +40,7 @@ function Profile(props) {
                 id="profile-name"
                 name="name"
                 type="text"
-                defaultValue="Виталий"
+                defaultValue={currentUser.name}
                 required
               />
             </span>
@@ -51,18 +54,18 @@ function Profile(props) {
                 id="profile-email"
                 name="email"
                 type="text"
-                defaultValue="pochta@yandex.ru"
+                defaultValue={currentUser.email}
                 required
               />
             </span>
             <span className="profile__input-error"></span>
           </label>
           <span className="profile__input-error">
-            При обновлении профиля произошла ошибка.
+            {errorMessage}
           </span>
           <button className="profile__btn">Редактировать</button>
         </form>
-        <button className="profile__btn profile__btn_logout">
+        <button className="profile__btn profile__btn_logout" onClick={signOut}>
           Выйти из аккаунта
         </button>
       </main>
