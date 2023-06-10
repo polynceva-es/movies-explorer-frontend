@@ -63,15 +63,12 @@
 
 .profile__input-error {
   width: 100%;
-  min-height: 16px;
+  height: 16px;
   font-weight: 400;
   font-size: 11px;
   line-height: 13px;
   text-align: center;
   color: #FF004C;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .profile__btn {
@@ -88,6 +85,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.profile__btn_disable {
+  color: #C2C2C2;
+  cursor: default;
 }
 
 .profile__btn:hover {

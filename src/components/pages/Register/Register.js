@@ -5,9 +5,10 @@ import useValidation from "../../../hooks/useValidation";
 
 function Register(props) {
   const { values, errors, onChange, resetValidation, isFormValid } = useValidation();
-  const { onSubmitRegister, errorMessage } = props;
+  const { onSubmitRegister, errorMessage, setErrorMessage } = props;
 
   React.useEffect(() => {
+    setErrorMessage('');
     resetValidation({ name: "", email: "", password: "" });
   }, []);
 

@@ -33,3 +33,20 @@ export function checkToken(jwt) {
   })
   .then(res=> getResponseData(res))
 }
+
+export function getUserInfo(jwt) {
+  return fetch (`${BASE_URL}/users/me`, {
+    method: 'GET',
+    headers: {...HEADERS, 'Authorization': `Bearer ${jwt}`}
+  })
+  .then(res=> getResponseData(res))
+}
+
+export function updateUserInfo(values, jwt) {
+      return fetch(`${BASE_URL}/users/me`, {
+        method: 'PATCH',
+        headers: {...HEADERS, 'Authorization': `Bearer ${jwt}`},
+        body: JSON.stringify({name: values.name, email: values.email})
+      })
+        .then(res => getResponseData(res))
+    }

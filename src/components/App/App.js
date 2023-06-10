@@ -9,20 +9,25 @@ import Profile from "../pages/Profile/Profile";
 import Movies from "../pages/Movies/Movies";
 import SavedMovies from "../pages/SavedMovies/SavedMovies";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
-import { login, register, checkToken } from "../../utils/MainApi";
+import {
+  login,
+  register,
+  checkToken,
+  getUserInfo,
+  updateUserInfo,
+} from "../../utils/MainApi";
 
 function App() {
-  const userContext = React.useContext(CurrentUserContext);
   const [errorMessage, setErrorMessage] = React.useState("");
   const [loggedIn, setLoggedIn] = React.useState(true);
   const [regedIn, setRegedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const navigate = useNavigate();
+
   function handleMenuOpen() {
     setIsMenuOpen(!isMenuOpen);
   }
-
-  const navigate = useNavigate();
   function goToProfile() {
     navigate("/profile");
     handleMenuOpen();
@@ -31,11 +36,25 @@ function App() {
     navigate("/signin");
   }
 
-  function onSubmitLogin(values) {
+  function onSubmitLogin(values, timeout) {
     login(values)
       .then(() => {
-        setLoggedIn(true);
-        navigate("/movies");
+        const jwt = localStorage.getItem("token");
+        getUserInfo(jwt)
+          .then((res) => {
+            setCurrentUser(res);
+            setLoggedIn(true);
+            if (timeout) {
+              setTimeout(() => {
+                navigate("/movies");
+              }, timeout);
+            } else {
+              navigate("/movies");
+            }
+          })
+          .catch(() => {
+            setErrorMessage("На сервере произошла ошибка");
+          });
       })
       .catch((err) => {
         err.then((e) => setErrorMessage(e.message));
@@ -47,14 +66,10 @@ function App() {
     register(values)
       .then(() => {
         setRegedIn(true);
-        setErrorMessage('Регистрация прошла успешно. Вы будете перенаправлены на другую страницу');
-        //onSubmitLogin...
-        login(values)
-          .then(() => {
-            setLoggedIn(true);
-            setTimeout(()=> {navigate("/movies")}, 3000);
-          })
-          .catch(()=> setErrorMessage('На сервере произошла ошибка'));
+        setErrorMessage(
+          "Регистрация прошла успешно. Вы будете перенаправлены на другую страницу"
+        );
+        onSubmitLogin(values, 2000);
       })
       .catch((err) => {
         err.then((e) => setErrorMessage(e.message));
@@ -65,11 +80,23 @@ function App() {
   function signOut() {
     setLoggedIn(false);
     localStorage.removeItem("token");
+    setCurrentUser({});
     navigate("/");
   }
 
+  function onSubmitUpdateUserInfo(values) {
+    const jwt = localStorage.getItem("token");
+    updateUserInfo(values, jwt)
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch((err) => {
+        setErrorMessage(err.message);
+      });
+  }
+
   return (
-    <CurrentUserContext.Provider value={userContext}>
+    <CurrentUserContext.Provider value={currentUser}>
       <Routes>
         <Route
           path="/"
@@ -87,7 +114,11 @@ function App() {
         <Route
           path="/signin"
           element={
-            <Login onSubmitLogin={onSubmitLogin} errorMessage={errorMessage} />
+            <Login
+              onSubmitLogin={onSubmitLogin}
+              errorMessage={errorMessage}
+              setErrorMessage={setErrorMessage}
+            />
           }
         />
         <Route
@@ -96,6 +127,7 @@ function App() {
             <Register
               onSubmitRegister={onSubmitRegister}
               errorMessage={errorMessage}
+              setErrorMessage={setErrorMessage}
             />
           }
         />
@@ -112,6 +144,8 @@ function App() {
               signOut={signOut}
               currentUser={currentUser}
               errorMessage={errorMessage}
+              setErrorMessage={setErrorMessage}
+              onSubmitUpdateUserInfo={onSubmitUpdateUserInfo}
               margin={false}
             />
           }
