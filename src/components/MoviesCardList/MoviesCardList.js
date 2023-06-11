@@ -2,16 +2,20 @@ import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList(props) {
-  const cards = Array.apply(null, Array(5)).map((elem, i) => {
-    return i % 2 === 0;
-  });
+  const {page, movies} = props;
 
   return (
     <>
       <section className="movies-card-list">
-        {cards.map((card, i) => (
-          <MoviesCard key={i} page={props.page}
-          isLikedProps={card} />
+        {movies.map((movie) => (
+          <MoviesCard
+          key={movie.id}
+          page={page}
+          nameRU={movie.nameRU}
+          imageUrl={movie.image.url}
+          trailerLink={movie.trailerLink}
+          duration={movie.duration}
+           />
         ))}
       </section>
     </>

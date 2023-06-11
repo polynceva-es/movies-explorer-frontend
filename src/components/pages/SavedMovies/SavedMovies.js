@@ -31,7 +31,7 @@ function SavedMovies(props) {
       />
       <main className="saved-movies">
         <SearchForm />
-        <MoviesCardList page="saved-movies" />
+        {/* <MoviesCardList page="saved-movies" /> */}
       </main>
       <Footer />
     </>

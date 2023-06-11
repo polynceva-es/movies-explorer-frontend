@@ -7,7 +7,11 @@ function useValidation() {
 
   function onChange(evt) {
     const errorMessage = evt.target.validationMessage;
-    const { name, value } = evt.target;
+    const { name, type, checked } = evt.target;
+    let { value } = evt.target;
+    if(type === "checkbox") {
+      value = checked;
+    }
     const newValues = {...values, [name]: value};
     const newErrors = {...errors, [name]: errorMessage};
     const formValid = evt.target.closest('form').checkValidity();

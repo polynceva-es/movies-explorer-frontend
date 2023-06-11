@@ -12,18 +12,62 @@ import PageNotFound from "../pages/PageNotFound/PageNotFound";
 import {
   login,
   register,
-  checkToken,
+  checkToken, //Сделать проверку наличия токена в localStorage при запуске приложения
   getUserInfo,
   updateUserInfo,
 } from "../../utils/MainApi";
+import { getMovies } from "../../utils/MoviesApi";
 
 function App() {
   const [errorMessage, setErrorMessage] = React.useState("");
+  const [isLoader, setIsLoader] = React.useState(false);
   const [loggedIn, setLoggedIn] = React.useState(true);
   const [regedIn, setRegedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [movies, setMovies] = React.useState([]);
   const navigate = useNavigate();
+
+  function tokenCheck() {
+    setIsLoader(true);
+    const jwt = localStorage.getItem("token");
+    if (jwt) {
+      checkToken(jwt)
+        .then((res) => {
+          setCurrentUser(res);
+          setLoggedIn(true);
+        })
+        .catch((err) => {
+          console.log("Ошибка:" + err);
+          localStorage.removeItem("token");
+          setLoggedIn(false);
+        })
+        .finally(() => setIsLoader(false));
+    }
+  }
+
+  React.useEffect(() => {
+    tokenCheck();
+    if (loggedIn) {
+      setIsLoader(true);
+      const movies = JSON.parse(localStorage.getItem("moviesList"));
+      if(!movies) {
+        getMovies()
+        .then((res) => {
+          const moviesFromLocalStorage = JSON.parse(localStorage.getItem("moviesList"));
+          setMovies(moviesFromLocalStorage);
+        })
+        .catch((err) => {
+          setErrorMessage(
+            "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
+          );
+        })
+        .finally(() => setIsLoader(false));
+      } else {
+        setMovies(movies);
+      }
+    }
+  }, []);
 
   function handleMenuOpen() {
     setIsMenuOpen(!isMenuOpen);
@@ -160,6 +204,7 @@ function App() {
               handleMenuOpen={handleMenuOpen}
               goToProfile={goToProfile}
               goToLogin={goToLogin}
+              movies={movies}
               margin={false}
             />
           }

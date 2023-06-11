@@ -6,6 +6,7 @@ import MoviesCardList from "../../MoviesCardList/MoviesCardList";
 import ButtonMore from "../../ButtonMore/ButtonMore";
 // import Preloader from "../../PreLoader/Preloader";
 import BurgerMenu from "../../BurgerMenu/BurgerMenu";
+import useValidation from "../../../hooks/useValidation";
 
 function Movies(props) {
   const {
@@ -14,8 +15,21 @@ function Movies(props) {
     handleMenuOpen,
     goToProfile,
     goToLogin,
+    movies,
     margin,
   } = props;
+
+  const { values, onChange, isFormValid } = useValidation();
+
+  const [filterMoviesList, setFilterMoviesList] = React.useState([]);
+
+  // const [numberLastFilm, setNumberLastFilm] = React.useState(undefined);
+
+
+  function onSubmitSearch(values) {
+
+  }
+
   return (
     <>
       <BurgerMenu
@@ -32,9 +46,14 @@ function Movies(props) {
         margin={margin}
       />
       <main className="movies">
-        <SearchForm />
+        <SearchForm
+          values={values}
+          onChange={onChange}
+          isFormValid={isFormValid}
+          onSubmitSearch={onSubmitSearch}
+        />
         {/* <Preloader /> */}
-        <MoviesCardList page="movies" />
+        <MoviesCardList page="movies" movies={movies} />
         <ButtonMore />
       </main>
       <Footer />
