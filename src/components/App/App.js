@@ -48,6 +48,8 @@ function App() {
           setLoggedIn(false);
         })
         .finally(() => setIsLoader(false));
+    } else {
+      setLoggedIn(false);
     }
   }
 
@@ -73,12 +75,7 @@ function getMoviesList() {
 }
 
   React.useEffect(() => {
-
     tokenCheck();
-    if (loggedIn) {
-
-      getMoviesList();
-    }
   }, []);
 
   function handleMenuOpen() {
@@ -153,22 +150,26 @@ function getMoviesList() {
     if(filterFilmParam) {
       const film = filterFilmParam.film;
       let shortFilm = filterFilmParam.shortFilm;
-      if(shortFilm === undefined) {shortFilm = false}
+      shortFilm = shortFilm ?? false;
       if(shortFilm) {
         filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration <= 40);
       } else {
         filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration > 40);
       }
+      localStorage.setItem("filterFilmList", JSON.stringify(filterMovies));
       setFilterMoviesList(filterMovies);
       setNumberLastFilm(undefined);
     } else {
+      localStorage.setItem("filterFilmList", []);
       setFilterMoviesList([]);
       setNumberLastFilm(undefined);
     }
   }
 
   function onSubmitSearch(values) {
+    console.log(values);
     localStorage.setItem("filterParam", JSON.stringify(values));
+    console.log(JSON.parse(localStorage.getItem("filterParam")));
     filterFilmList();
   }
 
@@ -245,6 +246,7 @@ function getMoviesList() {
               windowWidth={windowWidth}
               numberLastFilm={numberLastFilm}
               setNumberLastFilm={setNumberLastFilm}
+              setFilterMoviesList={setFilterMoviesList}
               margin={false}
             />
           }

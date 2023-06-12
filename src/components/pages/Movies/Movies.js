@@ -22,6 +22,7 @@ function Movies(props) {
     windowWidth,
     numberLastFilm,
     setNumberLastFilm,
+    setFilterMoviesList
   } = props;
 
   const { values, onChange, isFormValid, setValues } = useValidation();
@@ -33,7 +34,12 @@ function Movies(props) {
     if (filterFilmParam) {
       setValues(filterFilmParam);
     }
-    filterFilmList();
+    const filterFilmListFromLocalStorage = JSON.parse(localStorage.getItem("filterFilmList"));
+    if(filterFilmListFromLocalStorage) {
+      setFilterMoviesList(filterFilmListFromLocalStorage);
+    } else if (filterFilmParam) {
+      filterFilmList();
+    }
   }, []);
 
   React.useEffect(() => {
