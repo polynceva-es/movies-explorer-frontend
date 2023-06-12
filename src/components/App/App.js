@@ -53,15 +53,13 @@ function App() {
     }
   }
 
-function getMoviesList() {
-
+function callFunctionWithMovieList(functionWithMovieList) {
   const moviesList = JSON.parse(localStorage.getItem("moviesList"));
       if(!moviesList) {
         setIsLoader(true);
         getMovies()
         .then((res) => {
-          const moviesFromLocalStorage = JSON.parse(localStorage.getItem("moviesList"));
-          return moviesFromLocalStorage;
+          functionWithMovieList(res);
         })
         .catch((err) => {
           setErrorMessage(
@@ -70,7 +68,7 @@ function getMoviesList() {
         })
         .finally(() => setIsLoader(false));
       } else {
-        return moviesList;
+        functionWithMovieList(moviesList);
       }
 }
 
@@ -143,33 +141,33 @@ function getMoviesList() {
         setErrorMessage(err.message);
       });
   }
+
   function filterFilmList() {
-    const movies = getMoviesList();
-    const filterFilmParam = JSON.parse(localStorage.getItem("filterParam"));
-    let filterMovies;
-    if(filterFilmParam) {
-      const film = filterFilmParam.film;
-      let shortFilm = filterFilmParam.shortFilm;
-      shortFilm = shortFilm ?? false;
-      if(shortFilm) {
-        filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration <= 40);
+    callFunctionWithMovieList((movies) => {
+      const filterFilmParam = JSON.parse(localStorage.getItem("filterParam"));
+      let filterMovies;
+      if(filterFilmParam) {
+        const film = filterFilmParam.film;
+        let shortFilm = filterFilmParam.shortFilm;
+        shortFilm = shortFilm ?? false;
+        if(shortFilm) {
+          filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration <= 40);
+        } else {
+          filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration > 40);
+        }
+        localStorage.setItem("filterFilmList", JSON.stringify(filterMovies));
+        setFilterMoviesList(filterMovies);
+        setNumberLastFilm(undefined);
       } else {
-        filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration > 40);
+        localStorage.setItem("filterFilmList", []);
+        setFilterMoviesList([]);
+        setNumberLastFilm(undefined);
       }
-      localStorage.setItem("filterFilmList", JSON.stringify(filterMovies));
-      setFilterMoviesList(filterMovies);
-      setNumberLastFilm(undefined);
-    } else {
-      localStorage.setItem("filterFilmList", []);
-      setFilterMoviesList([]);
-      setNumberLastFilm(undefined);
-    }
+    });
   }
 
   function onSubmitSearch(values) {
-    console.log(values);
     localStorage.setItem("filterParam", JSON.stringify(values));
-    console.log(JSON.parse(localStorage.getItem("filterParam")));
     filterFilmList();
   }
 

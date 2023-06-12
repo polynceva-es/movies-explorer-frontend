@@ -1,5 +1,5 @@
 const BASE_URL = 'https://api.nomoreparties.co/beatfilm-movies';
-37
+
 function getResponseData(res) {
   if (!res.ok) {
     return Promise.reject(res.json());
@@ -15,5 +15,6 @@ export function getMovies() {
   .then(res=> {
     const moviesList = JSON.stringify(res);
     localStorage.setItem('moviesList', moviesList);
+    return res;
   })
 }

@@ -9,7 +9,6 @@ function SearchForm(props) {
 
   function handleSearch(evt) {
     evt.preventDefault();
-    console.log(values)
     onSubmitSearch(values);
   }
   return (
@@ -32,7 +31,7 @@ function SearchForm(props) {
             Найти
           </button>
         </div>
-        <FilterCheckbox onChange={onChange} values={values}/>
+        <FilterCheckbox onChange={onChange} onSubmitSearch={onSubmitSearch} isFormValid={isFormValid} values={values}/>
       </form>
     </section>
   );
