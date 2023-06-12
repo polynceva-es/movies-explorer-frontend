@@ -2,12 +2,12 @@ import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 
 function MoviesCardList(props) {
-  const {page, movies} = props;
+  const {page, filterAndLimitedMoviesList} = props;
 
   return (
     <>
       <section className="movies-card-list">
-        {movies.map((movie) => (
+        {filterAndLimitedMoviesList.map((movie) => (
           <MoviesCard
           key={movie.id}
           page={page}

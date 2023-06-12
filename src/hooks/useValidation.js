@@ -31,7 +31,8 @@ function useValidation() {
     onChange,
     resetValidation,
     isFormValid,
-    setIsFormValid
+    setIsFormValid,
+    setValues
   };
 }
 

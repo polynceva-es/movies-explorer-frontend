@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { useWindowWidth } from '@react-hook/window-size'
 import ProtectedRoute from "../ProtectedRoute";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Main from "../pages/Main/Main";
@@ -25,8 +26,12 @@ function App() {
   const [regedIn, setRegedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [movies, setMovies] = React.useState([]);
+  // const [movies, setMovies] = React.useState([]);
+  const [filterMoviesList, setFilterMoviesList] = React.useState([]);
+  const [numberLastFilm, setNumberLastFilm] = React.useState(undefined);
+
   const navigate = useNavigate();
+  const windowWidth = useWindowWidth();
 
   function tokenCheck() {
     setIsLoader(true);
@@ -46,16 +51,15 @@ function App() {
     }
   }
 
-  React.useEffect(() => {
-    tokenCheck();
-    if (loggedIn) {
-      setIsLoader(true);
-      const movies = JSON.parse(localStorage.getItem("moviesList"));
-      if(!movies) {
+function getMoviesList() {
+
+  const moviesList = JSON.parse(localStorage.getItem("moviesList"));
+      if(!moviesList) {
+        setIsLoader(true);
         getMovies()
         .then((res) => {
           const moviesFromLocalStorage = JSON.parse(localStorage.getItem("moviesList"));
-          setMovies(moviesFromLocalStorage);
+          return moviesFromLocalStorage;
         })
         .catch((err) => {
           setErrorMessage(
@@ -64,8 +68,16 @@ function App() {
         })
         .finally(() => setIsLoader(false));
       } else {
-        setMovies(movies);
+        return moviesList;
       }
+}
+
+  React.useEffect(() => {
+
+    tokenCheck();
+    if (loggedIn) {
+
+      getMoviesList();
     }
   }, []);
 
@@ -79,7 +91,6 @@ function App() {
   function goToLogin() {
     navigate("/signin");
   }
-
   function onSubmitLogin(values, timeout) {
     login(values)
       .then(() => {
@@ -105,7 +116,6 @@ function App() {
         setRegedIn(false);
       });
   }
-
   function onSubmitRegister(values) {
     register(values)
       .then(() => {
@@ -120,14 +130,12 @@ function App() {
         setRegedIn(false);
       });
   }
-
   function signOut() {
     setLoggedIn(false);
     localStorage.removeItem("token");
     setCurrentUser({});
     navigate("/");
   }
-
   function onSubmitUpdateUserInfo(values) {
     const jwt = localStorage.getItem("token");
     updateUserInfo(values, jwt)
@@ -138,6 +146,33 @@ function App() {
         setErrorMessage(err.message);
       });
   }
+  function filterFilmList() {
+    const movies = getMoviesList();
+    const filterFilmParam = JSON.parse(localStorage.getItem("filterParam"));
+    let filterMovies;
+    if(filterFilmParam) {
+      const film = filterFilmParam.film;
+      let shortFilm = filterFilmParam.shortFilm;
+      if(shortFilm === undefined) {shortFilm = false}
+      if(shortFilm) {
+        filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration <= 40);
+      } else {
+        filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration > 40);
+      }
+      setFilterMoviesList(filterMovies);
+      setNumberLastFilm(undefined);
+    } else {
+      setFilterMoviesList([]);
+      setNumberLastFilm(undefined);
+    }
+  }
+
+  function onSubmitSearch(values) {
+    localStorage.setItem("filterParam", JSON.stringify(values));
+    filterFilmList();
+  }
+
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -204,7 +239,12 @@ function App() {
               handleMenuOpen={handleMenuOpen}
               goToProfile={goToProfile}
               goToLogin={goToLogin}
-              movies={movies}
+              onSubmitSearch={onSubmitSearch}
+              filterMoviesList={filterMoviesList}
+              filterFilmList={filterFilmList}
+              windowWidth={windowWidth}
+              numberLastFilm={numberLastFilm}
+              setNumberLastFilm={setNumberLastFilm}
               margin={false}
             />
           }

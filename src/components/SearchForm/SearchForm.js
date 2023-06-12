@@ -9,7 +9,6 @@ function SearchForm(props) {
 
   function handleSearch(evt) {
     evt.preventDefault();
-    console.log(evt);
     onSubmitSearch(values);
   }
   return (

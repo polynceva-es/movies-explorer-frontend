@@ -15,19 +15,61 @@ function Movies(props) {
     handleMenuOpen,
     goToProfile,
     goToLogin,
-    movies,
     margin,
+    onSubmitSearch,
+    filterMoviesList,
+    filterFilmList,
+    windowWidth,
+    numberLastFilm,
+    setNumberLastFilm,
   } = props;
 
-  const { values, onChange, isFormValid } = useValidation();
+  const { values, onChange, isFormValid, setValues } = useValidation();
+  const [filterAndLimitedMoviesList, setFilterAndLimitedMoviesList] =
+    React.useState([]);
 
-  const [filterMoviesList, setFilterMoviesList] = React.useState([]);
+  React.useEffect(() => {
+    const filterFilmParam = JSON.parse(localStorage.getItem("filterParam"));
+    if (filterFilmParam) {
+      setValues(filterFilmParam);
+    }
+    filterFilmList();
+  }, []);
 
-  // const [numberLastFilm, setNumberLastFilm] = React.useState(undefined);
+  React.useEffect(() => {
+    let limit;
 
+    if (numberLastFilm !== undefined) {
+      limit = numberLastFilm;
+    } else {
+      if (windowWidth >= 1280) {
+        limit = 12;
+      } else if (windowWidth >= 768) {
+        limit = 8;
+      }
+      else {
+        limit = 5;
+      }
+    }
+      if (limit > filterMoviesList.length) {
+        setFilterAndLimitedMoviesList(filterMoviesList);
+        setNumberLastFilm(limit);
+      } else {
+        let newList = [];
+        for (let i = 0; i < limit; i++) {
+          newList.push(filterMoviesList[i]);
+        }
+        setFilterAndLimitedMoviesList(newList);
+        setNumberLastFilm(limit);
+      }
+  }, [filterMoviesList, numberLastFilm]);
 
-  function onSubmitSearch(values) {
-
+  function handleClickMore() {
+    if (windowWidth >= 1280) {
+      setNumberLastFilm(numberLastFilm + 3)
+    } else {
+      setNumberLastFilm(numberLastFilm + 2)
+    }
   }
 
   return (
@@ -53,8 +95,16 @@ function Movies(props) {
           onSubmitSearch={onSubmitSearch}
         />
         {/* <Preloader /> */}
-        <MoviesCardList page="movies" movies={movies} />
-        <ButtonMore />
+        <MoviesCardList
+          page="movies"
+          filterAndLimitedMoviesList={filterAndLimitedMoviesList}
+        />
+
+        { filterMoviesList.length > filterAndLimitedMoviesList.length ? (
+          <ButtonMore handleClickMore={handleClickMore} />
+        ) : (
+          ""
+        )}
       </main>
       <Footer />
     </>
