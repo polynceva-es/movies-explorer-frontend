@@ -11,6 +11,13 @@ function SearchForm(props) {
     evt.preventDefault();
     onSubmitSearch(values);
   }
+
+  React.useEffect(() => {
+    if (values.film) {
+      onSubmitSearch(values);
+    }
+  }, [values.shortFilm]);
+
   return (
     <section className="search-form">
       <form onSubmit={handleSearch}>

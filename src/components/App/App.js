@@ -151,9 +151,9 @@ function callFunctionWithMovieList(functionWithMovieList) {
         let shortFilm = filterFilmParam.shortFilm;
         shortFilm = shortFilm ?? false;
         if(shortFilm) {
-          filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration <= 40);
+          filterMovies = movies.filter((elem)=> elem.nameRU.toLowerCase().includes(film.toLowerCase())).filter((elem) => elem.duration <= 40);
         } else {
-          filterMovies = movies.filter((elem)=> elem.nameRU.includes(film)).filter((elem) => elem.duration > 40);
+          filterMovies = movies.filter((elem)=> elem.nameRU.toLowerCase().includes(film.toLowerCase())).filter((elem) => elem.duration > 40);
         }
         localStorage.setItem("filterFilmList", JSON.stringify(filterMovies));
         setFilterMoviesList(filterMovies);

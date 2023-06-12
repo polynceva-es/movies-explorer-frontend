@@ -1,16 +1,8 @@
 import React from "react";
 
 function FilterCheckbox(props) {
-  const { values, onChange, isFormValid, onSubmitSearch } = props;
-  function handleCheckboxChange(evt) {
-    evt.preventDefault();
-    onChange(evt);
-    if (isFormValid && values.film) {
-      const newValues={...values}
-      newValues.shortFilm = evt.target.checked;
-      onSubmitSearch(newValues);
-    }
-  }
+  const { values, onChange } = props;
+
   return (
     <div className="filter-checkbox">
       <label className="filter-checkbox__switch">
@@ -19,7 +11,7 @@ function FilterCheckbox(props) {
           type="checkbox"
           name="shortFilm"
           checked={values.shortFilm ?? false}
-          onChange={handleCheckboxChange}
+          onChange={onChange}
           pattern=""
         />
         <span className="filter-checkbox__slider" />
