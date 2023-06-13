@@ -16,10 +16,15 @@ function SavedMovies(props) {
     savedMoviesList,
     onClickLiked,
     onSubmitSaveSearch,
+    loadSavedMovies,
     margin,
   } = props;
 
   const { values, onChange, isFormValid, setValues } = useValidation();
+
+  React.useEffect(()=> {
+    loadSavedMovies();
+  }, [])
 
   return (
     <>

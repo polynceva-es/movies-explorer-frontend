@@ -14,7 +14,7 @@ function MoviesCard(props) {
     onClickLiked,
     defaultIsLiked
   } = props;
-  const imageSRC = `https://api.nomoreparties.co/${imageUrl}`;
+  const imageSRC = page === "saved-movies" ? imageUrl : `https://api.nomoreparties.co/${imageUrl}`;
 
   const [isLiked, setIsLiked] = React.useState(defaultIsLiked);
 

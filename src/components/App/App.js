@@ -42,12 +42,20 @@ function App() {
     // const isMovieSaved = savedMovies.some((item) => item.movieId === movie.id);
     if (jwt) {
       if (isLiked) {
-        deleteSaveMovie(movie.movieID, jwt)
-          .then((res) => setIsLiked(false))
+        deleteSaveMovie(movie._id, jwt)
+          .then((res) => {
+            setIsLiked(false);
+            setSavedMoviesList(
+              savedMoviesList.filter((elem) => elem._id !== movie._id)
+            );
+          })
           .catch((err) => console.log(`Ошибка: ${err}`));
       } else if (!isLiked) {
         postSaveMovie(movie, jwt)
-          .then((res) => setIsLiked(true))
+          .then((res) => {
+            setIsLiked(true);
+            movie._id = res._id;
+          })
           .catch((err) => console.log(`Ошибка: ${err}`));
       }
     } else {
@@ -55,13 +63,59 @@ function App() {
     }
   }
 
-  React.useEffect(()=> {
-    if(loggedIn) {
-      getSaveMovies()
-        .then(res => setSavedMoviesList(res))
-        .catch(err => setErrorMessage(err));
+  function loadSavedMovies(filters) {
+    const jwt = localStorage.getItem("token");
+    if (loggedIn && jwt) {
+      getSaveMovies(jwt)
+        .then((res) => {
+          let filterMovies;
+          if (filters) {
+            const film = filters.film;
+            let shortFilm = filters.shortFilm;
+            shortFilm = shortFilm ?? false;
+            if (shortFilm) {
+              filterMovies = res
+                .filter((elem) =>
+                  elem.nameRU.toLowerCase().includes(film.toLowerCase())
+                )
+                .filter((elem) => elem.duration <= 40);
+            } else {
+              filterMovies = res
+                .filter((elem) =>
+                  elem.nameRU.toLowerCase().includes(film.toLowerCase())
+                )
+                .filter((elem) => elem.duration > 40);
+            }
+          } else {
+            filterMovies = res;
+          }
+          setSavedMoviesList(filterMovies);
+
+        })
+        .catch((err) => setErrorMessage(err));
     }
-  }, [loggedIn])
+  }
+
+  function enrichMoviersFromLocalStorageWithLikes(moviesList) {
+    const jwt = localStorage.getItem("token");
+    if (loggedIn && jwt) {
+      getSaveMovies(jwt)
+        .then((savedMovies) => {
+          const savedMoviesIndex = {};
+          savedMovies.forEach((elem) => {
+            savedMoviesIndex[elem.movieId] = elem._id;
+          });
+          moviesList = moviesList.map((el) => {
+            if (savedMoviesIndex[el.id] !== undefined) {
+              el._id = savedMoviesIndex[el.id];
+            }
+            return el;
+          });
+          setFilterMoviesList(moviesList);
+        })
+        .catch((err) => setErrorMessage(err));
+    }
+  }
 
   function tokenCheck() {
     setIsLoader(true);
@@ -83,7 +137,7 @@ function App() {
     }
   }
 
-  function callFunctionWithMovieList(functionWithMovieList) {
+  function getMovieList() {
     const moviesList = JSON.parse(localStorage.getItem("moviesList"));
     if (!moviesList) {
       setIsLoader(true);
@@ -99,7 +153,7 @@ function App() {
       // })
       // .finally(() => setIsLoader(false));
     } else {
-      functionWithMovieList(moviesList);
+      return moviesList;
       // return Promise((1,2) => {acceprt(moviesList)});
     }
   }
@@ -160,6 +214,11 @@ function App() {
   function signOut() {
     setLoggedIn(false);
     localStorage.removeItem("token");
+    localStorage.removeItem("filterParam");
+    localStorage.removeItem("moviesList");
+    localStorage.removeItem("filterFilmList");
+    setFilterMoviesList([]);
+
     setCurrentUser({});
     navigate("/");
   }
@@ -176,36 +235,58 @@ function App() {
   }
 
   function filterFilmList() {
-    //promis all ( => movies and saved movies)
-    callFunctionWithMovieList((movies) => {
-      const filterFilmParam = JSON.parse(localStorage.getItem("filterParam"));
-      let filterMovies;
-      if (filterFilmParam) {
-        const film = filterFilmParam.film;
-        let shortFilm = filterFilmParam.shortFilm;
-        shortFilm = shortFilm ?? false;
-        if (shortFilm) {
-          filterMovies = movies
-            .filter((elem) =>
-              elem.nameRU.toLowerCase().includes(film.toLowerCase())
-            )
-            .filter((elem) => elem.duration <= 40);
-        } else {
-          filterMovies = movies
-            .filter((elem) =>
-              elem.nameRU.toLowerCase().includes(film.toLowerCase())
-            )
-            .filter((elem) => elem.duration > 40);
-        }
-        localStorage.setItem("filterFilmList", JSON.stringify(filterMovies));
-        setFilterMoviesList(filterMovies);
-        setNumberLastFilm(undefined);
-      } else {
-        localStorage.setItem("filterFilmList", []);
-        setFilterMoviesList([]);
-        setNumberLastFilm(undefined);
-      }
-    });
+    const jwt = localStorage.getItem("token");
+    if (jwt) {
+      Promise.all([getMovieList(), getSaveMovies(jwt)])
+        .then((promiseResult) => {
+          const [movies, savedMovies] = promiseResult;
+          const filterFilmParam = JSON.parse(
+            localStorage.getItem("filterParam")
+          );
+          let filterMovies;
+          if (filterFilmParam) {
+            const film = filterFilmParam.film;
+            let shortFilm = filterFilmParam.shortFilm;
+            shortFilm = shortFilm ?? false;
+            if (shortFilm) {
+              filterMovies = movies
+                .filter((elem) =>
+                  elem.nameRU.toLowerCase().includes(film.toLowerCase())
+                )
+                .filter((elem) => elem.duration <= 40);
+            } else {
+              filterMovies = movies
+                .filter((elem) =>
+                  elem.nameRU.toLowerCase().includes(film.toLowerCase())
+                )
+                .filter((elem) => elem.duration > 40);
+            }
+            localStorage.setItem(
+              "filterFilmList",
+              JSON.stringify(filterMovies)
+            );
+
+            const savedMoviesIndex = {};
+            savedMovies.forEach((elem) => {
+              savedMoviesIndex[elem.movieId] = elem._id;
+            });
+            filterMovies = filterMovies.map((el) => {
+              if (savedMoviesIndex[el.id] !== undefined) {
+                el._id = savedMoviesIndex[el.id];
+              }
+              return el;
+            });
+            setFilterMoviesList(filterMovies);
+
+            setNumberLastFilm(undefined);
+          } else {
+            localStorage.setItem("filterFilmList", []);
+            setFilterMoviesList([]);
+            setNumberLastFilm(undefined);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
   }
 
   function onSubmitSearch(values) {
@@ -213,8 +294,8 @@ function App() {
     filterFilmList();
   }
 
-  function onSubmitSaveSearch() {
-    console.log('search')
+  function onSubmitSaveSearch(values) {
+    loadSavedMovies(values);
   }
 
   return (
@@ -288,8 +369,8 @@ function App() {
               windowWidth={windowWidth}
               numberLastFilm={numberLastFilm}
               setNumberLastFilm={setNumberLastFilm}
-              setFilterMoviesList={setFilterMoviesList}
               onClickLiked={onClickLiked}
+              enrichMoviersFromLocalStorageWithLikes={enrichMoviersFromLocalStorageWithLikes}
               margin={false}
             />
           }
@@ -306,6 +387,8 @@ function App() {
               goToLogin={goToLogin}
               savedMoviesList={savedMoviesList}
               onSubmitSaveSearch={onSubmitSaveSearch}
+              onClickLiked={onClickLiked}
+              loadSavedMovies={loadSavedMovies}
               margin={false}
             />
           }

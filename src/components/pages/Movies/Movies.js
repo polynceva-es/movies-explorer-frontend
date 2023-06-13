@@ -22,7 +22,7 @@ function Movies(props) {
     windowWidth,
     numberLastFilm,
     setNumberLastFilm,
-    setFilterMoviesList,
+    enrichMoviersFromLocalStorageWithLikes,
     onClickLiked
   } = props;
 
@@ -37,7 +37,8 @@ function Movies(props) {
     }
     const filterFilmListFromLocalStorage = JSON.parse(localStorage.getItem("filterFilmList"));
     if(filterFilmListFromLocalStorage) {
-      setFilterMoviesList(filterFilmListFromLocalStorage);
+
+      enrichMoviersFromLocalStorageWithLikes(filterFilmListFromLocalStorage);
     } else if (filterFilmParam) {
       filterFilmList();
     }
