@@ -4,6 +4,7 @@ import Footer from "../../Footer/Footer";
 import SearchForm from "../../SearchForm/SearchForm";
 import MoviesCardList from "../../MoviesCardList/MoviesCardList";
 import BurgerMenu from "../../BurgerMenu/BurgerMenu";
+import useValidation from "../../../hooks/useValidation";
 
 function SavedMovies(props) {
   const {
@@ -14,8 +15,12 @@ function SavedMovies(props) {
     goToLogin,
     savedMoviesList,
     onClickLiked,
+    onSubmitSaveSearch,
     margin,
   } = props;
+
+  const { values, onChange, isFormValid, setValues } = useValidation();
+
   return (
     <>
       <BurgerMenu
@@ -32,7 +37,12 @@ function SavedMovies(props) {
         margin={margin}
       />
       <main className="saved-movies">
-        <SearchForm />
+        <SearchForm
+          values={values}
+          onChange={onChange}
+          isFormValid={isFormValid}
+          onSubmitSearch={onSubmitSaveSearch}
+        />
         <MoviesCardList
           page="saved-movies"
           moviesList={savedMoviesList}

@@ -213,6 +213,10 @@ function App() {
     filterFilmList();
   }
 
+  function onSubmitSaveSearch() {
+    console.log('search')
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
@@ -301,6 +305,7 @@ function App() {
               goToProfile={goToProfile}
               goToLogin={goToLogin}
               savedMoviesList={savedMoviesList}
+              onSubmitSaveSearch={onSubmitSaveSearch}
               margin={false}
             />
           }
