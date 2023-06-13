@@ -22,7 +22,8 @@ function Movies(props) {
     windowWidth,
     numberLastFilm,
     setNumberLastFilm,
-    setFilterMoviesList
+    setFilterMoviesList,
+    onClickLiked
   } = props;
 
   const { values, onChange, isFormValid, setValues } = useValidation();
@@ -103,7 +104,8 @@ function Movies(props) {
         {/* <Preloader /> */}
         <MoviesCardList
           page="movies"
-          filterAndLimitedMoviesList={filterAndLimitedMoviesList}
+          moviesList={filterAndLimitedMoviesList}
+          onClickLiked={onClickLiked}
         />
 
         { filterMoviesList.length > filterAndLimitedMoviesList.length ? (

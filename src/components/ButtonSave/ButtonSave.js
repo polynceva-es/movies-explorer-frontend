@@ -1,7 +1,8 @@
 import React from "react";
 
-function ButtonSave() {
-  return <button className="btn-save movie-card__btn">Сохранить</button>;
+function ButtonSave(props) {
+  const {handleClickLikedToggle} = props;
+  return <button className="btn-save movie-card__btn" onClick={handleClickLikedToggle}>Сохранить</button>;
 }
 
 export default ButtonSave;

@@ -50,3 +50,40 @@ export function updateUserInfo(values, jwt) {
       })
         .then(res => getResponseData(res))
     }
+
+export function getSaveMovies(jwt) {
+  return fetch(`${BASE_URL}/movies`, {
+    method: 'GET',
+    headers: {...HEADERS, 'Authorization': `Bearer ${jwt}`}
+  })
+  .then(res=> getResponseData(res))
+}
+
+export function postSaveMovie(movie, jwt) {
+  return fetch(`${BASE_URL}/movies`, {
+    method: 'POST',
+    headers: {...HEADERS, 'Authorization': `Bearer ${jwt}`},
+    body: JSON.stringify({
+      country: movie.country,
+      director: movie.director,
+      duration: movie.duration,
+      year: movie.year,
+      description: movie.description,
+      image: `https://api.nomoreparties.co${movie.image.url}`,
+      trailerLink: movie.trailerLink,
+      nameRU: movie.nameRU,
+      nameEN: movie.nameEN,
+      thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
+      movieId: movie.id
+    })
+  })
+  .then(res=> getResponseData(res))
+}
+
+export function deleteSaveMovie(movieId, jwt) {
+  return fetch(`${BASE_URL}/movies/${movieId}`, {
+    method: 'DELETE',
+    headers: {...HEADERS, 'Authorization': `Bearer ${jwt}`}
+  })
+  .then(res=> getResponseData(res))
+}

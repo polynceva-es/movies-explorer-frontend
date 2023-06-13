@@ -31,13 +31,16 @@ function Profile(props) {
     `profile__btn ` + (!isFormValid ? "profile__btn_disable" : "");
 
   React.useEffect(() => {
-    setErrorMessage("");
     resetValidation(
       { name: currentUser.name, email: currentUser.email },
       { name: "", email: "" }
     );
     setIsFormValid(false);
   }, [currentUser]);
+
+  React.useEffect(()=> {
+    setErrorMessage("");
+  }, [])
 
   function handleSubmitUpdateUserInfo(evt) {
     evt.preventDefault();
@@ -107,7 +110,7 @@ function Profile(props) {
             <span className="profile__input-error">{errors.email}</span>
           </label>
           <span className="profile__input-error">{errorMessage}</span>
-          <button className={buttonSubmitClassName}>Редактировать</button>
+          <button className={buttonSubmitClassName} disabled={!isFormValid}>Редактировать</button>
         </form>
         <button className="profile__btn profile__btn_logout" onClick={signOut}>
           Выйти из аккаунта

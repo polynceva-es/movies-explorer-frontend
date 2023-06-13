@@ -4,27 +4,42 @@ import ButtonIsLiked from "../ButtonIsLiked/ButtonIsLiked";
 import ButtonDelete from "../ButtonDelete/ButtonDelete";
 
 function MoviesCard(props) {
-  const { nameRU, imageUrl, trailerLink, duration, page } = props;
-    const imageSRC = `https://api.nomoreparties.co/${imageUrl}`;
+  const {
+    movie,
+    nameRU,
+    imageUrl,
+    trailerLink,
+    duration,
+    page,
+    onClickLiked,
+    defaultIsLiked
+  } = props;
+  const imageSRC = `https://api.nomoreparties.co/${imageUrl}`;
 
-    function getDuration(mins) {
-      let hours = Math.trunc(mins/60);
-      let minutes = mins % 60;
-      return hours + 'ч ' + minutes + 'м';
-    }
+  const [isLiked, setIsLiked] = React.useState(defaultIsLiked);
 
-  // const [isLiked, setIsLiked] = React.useState(isLikedProps);
-  // let button;
-  // if (page === "saved-movies") {
-  //   button = <ButtonDelete />;
-  // } else if (page === "movies" && isLiked) {
-  //   button = <ButtonIsLiked />;
-  // } else if (page === "movies" && !isLiked) {
-  //   button = <ButtonSave />;
-  // }
+  function getDuration(mins) {
+    let hours = Math.trunc(mins / 60);
+    let minutes = mins % 60;
+    return hours ? hours + "ч " + minutes + "м" : minutes + "м";
+  }
+
+  function handleClickLikedToggle() {
+    onClickLiked(movie, isLiked, setIsLiked);
+  }
+
+  let button;
+  if (page === "saved-movies") {
+    button = <ButtonDelete handleClickLikedToggle={handleClickLikedToggle} />;
+  } else if (page === "movies" && isLiked) {
+    button = <ButtonIsLiked handleClickLikedToggle={handleClickLikedToggle} />;
+  } else if (page === "movies" && !isLiked) {
+    button = <ButtonSave handleClickLikedToggle={handleClickLikedToggle} />;
+  }
+
   return (
     <article className="movie-card">
-      {/* {button} */}
+      {button}
       <figure className="movie-card__figure">
         <a href={trailerLink} target="_blanck" className="movie-card__link">
           <img className="movie-card__image" src={imageSRC} alt="Кадр фильма" />

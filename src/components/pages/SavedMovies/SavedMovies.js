@@ -12,6 +12,8 @@ function SavedMovies(props) {
     handleMenuOpen,
     goToProfile,
     goToLogin,
+    savedMoviesList,
+    onClickLiked,
     margin,
   } = props;
   return (
@@ -31,7 +33,11 @@ function SavedMovies(props) {
       />
       <main className="saved-movies">
         <SearchForm />
-        {/* <MoviesCardList page="saved-movies" /> */}
+        <MoviesCardList
+          page="saved-movies"
+          moviesList={savedMoviesList}
+          onClickLiked={onClickLiked}
+        />
       </main>
       <Footer />
     </>
