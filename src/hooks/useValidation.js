@@ -15,7 +15,6 @@ function useValidation() {
       value = checked;
     }
     if (errorMessage === "") {
-      console.log("bee")
       let isInputValid;
       if(name === "name" && value !== undefined ) {
         isInputValid = value.match(REG_NAME);
