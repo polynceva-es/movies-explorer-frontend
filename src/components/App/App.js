@@ -29,7 +29,6 @@ function App() {
   const [regedIn, setRegedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  // const [movies, setMovies] = React.useState([]);
   const [filterMoviesList, setFilterMoviesList] = React.useState([]);
   const [numberLastFilm, setNumberLastFilm] = React.useState(undefined);
   const [savedMoviesList, setSavedMoviesList] = React.useState([]);
@@ -64,6 +63,7 @@ function App() {
   }
 
   function loadSavedMovies(filters) {
+    setIsLoader(true);
     const jwt = localStorage.getItem("token");
     if (loggedIn && jwt) {
       getSaveMovies(jwt)
@@ -90,13 +90,14 @@ function App() {
             filterMovies = res;
           }
           setSavedMoviesList(filterMovies);
-
         })
-        .catch((err) => setErrorMessage(err));
+        .catch((err) => setErrorMessage(err))
+        .finally(() => setIsLoader(false));
     }
   }
 
   function enrichMoviersFromLocalStorageWithLikes(moviesList) {
+    setIsLoader(true);
     const jwt = localStorage.getItem("token");
     if (loggedIn && jwt) {
       getSaveMovies(jwt)
@@ -113,7 +114,8 @@ function App() {
           });
           setFilterMoviesList(moviesList);
         })
-        .catch((err) => setErrorMessage(err));
+        .catch((err) => setErrorMessage(err))
+        .finally(() => setIsLoader(false));
     }
   }
 
@@ -140,21 +142,9 @@ function App() {
   function getMovieList() {
     const moviesList = JSON.parse(localStorage.getItem("moviesList"));
     if (!moviesList) {
-      setIsLoader(true);
       return getMovies();
-
-      // .then((res) => {
-      //   functionWithMovieList(res);
-      // })
-      // .catch((err) => {
-      //   setErrorMessage(
-      //     "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
-      //   );
-      // })
-      // .finally(() => setIsLoader(false));
     } else {
       return moviesList;
-      // return Promise((1,2) => {acceprt(moviesList)});
     }
   }
 
@@ -218,7 +208,6 @@ function App() {
     localStorage.removeItem("moviesList");
     localStorage.removeItem("filterFilmList");
     setFilterMoviesList([]);
-
     setCurrentUser({});
     navigate("/");
   }
@@ -235,6 +224,8 @@ function App() {
   }
 
   function filterFilmList() {
+    setErrorMessage("");
+    setIsLoader(true);
     const jwt = localStorage.getItem("token");
     if (jwt) {
       Promise.all([getMovieList(), getSaveMovies(jwt)])
@@ -276,8 +267,13 @@ function App() {
               }
               return el;
             });
-            setFilterMoviesList(filterMovies);
-
+            if (filterMovies.length === 0) {
+              setErrorMessage("Ничего не найдено");
+              setFilterMoviesList([]);
+            } else {
+              setErrorMessage("");
+              setFilterMoviesList(filterMovies);
+            }
             setNumberLastFilm(undefined);
           } else {
             localStorage.setItem("filterFilmList", []);
@@ -285,7 +281,12 @@ function App() {
             setNumberLastFilm(undefined);
           }
         })
-        .catch((err) => console.log(err));
+        .catch((err) =>
+          setErrorMessage(
+            "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
+          )
+        )
+        .finally(() => setIsLoader(false));
     }
   }
 
@@ -370,7 +371,12 @@ function App() {
               numberLastFilm={numberLastFilm}
               setNumberLastFilm={setNumberLastFilm}
               onClickLiked={onClickLiked}
-              enrichMoviersFromLocalStorageWithLikes={enrichMoviersFromLocalStorageWithLikes}
+              enrichMoviersFromLocalStorageWithLikes={
+                enrichMoviersFromLocalStorageWithLikes
+              }
+              errorMessage={errorMessage}
+              setErrorMessage={setErrorMessage}
+              isLoader={isLoader}
               margin={false}
             />
           }
@@ -389,6 +395,9 @@ function App() {
               onSubmitSaveSearch={onSubmitSaveSearch}
               onClickLiked={onClickLiked}
               loadSavedMovies={loadSavedMovies}
+              errorMessage={errorMessage}
+              setErrorMessage={setErrorMessage}
+              isLoader={isLoader}
               margin={false}
             />
           }

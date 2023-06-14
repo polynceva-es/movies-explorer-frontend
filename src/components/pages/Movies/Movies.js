@@ -4,7 +4,7 @@ import Footer from "../../Footer/Footer";
 import SearchForm from "../../SearchForm/SearchForm";
 import MoviesCardList from "../../MoviesCardList/MoviesCardList";
 import ButtonMore from "../../ButtonMore/ButtonMore";
-// import Preloader from "../../PreLoader/Preloader";
+import Preloader from "../../PreLoader/Preloader";
 import BurgerMenu from "../../BurgerMenu/BurgerMenu";
 import useValidation from "../../../hooks/useValidation";
 
@@ -23,7 +23,10 @@ function Movies(props) {
     numberLastFilm,
     setNumberLastFilm,
     enrichMoviersFromLocalStorageWithLikes,
-    onClickLiked
+    onClickLiked,
+    errorMessage,
+    setErrorMessage,
+    isLoader,
   } = props;
 
   const { values, onChange, isFormValid, setValues } = useValidation();
@@ -31,6 +34,7 @@ function Movies(props) {
     React.useState([]);
 
   React.useEffect(() => {
+    setErrorMessage("");
     const filterFilmParam = JSON.parse(localStorage.getItem("filterParam"));
     if (filterFilmParam) {
       setValues(filterFilmParam);
@@ -102,7 +106,8 @@ function Movies(props) {
           isFormValid={isFormValid}
           onSubmitSearch={onSubmitSearch}
         />
-        {/* <Preloader /> */}
+        <span className="not-found-message">{errorMessage}</span>
+        <Preloader isLoader={isLoader}/>
         <MoviesCardList
           page="movies"
           moviesList={filterAndLimitedMoviesList}
