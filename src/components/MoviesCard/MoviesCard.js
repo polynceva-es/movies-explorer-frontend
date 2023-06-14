@@ -18,6 +18,16 @@ function MoviesCard(props) {
 
   const [isLiked, setIsLiked] = React.useState(defaultIsLiked);
 
+  React.useEffect(() => {
+    if (movie) {
+      if (movie._id) {
+        setIsLiked(true);
+      } else {
+        setIsLiked(false);
+      }
+    }
+  }, [movie]);
+
   function getDuration(mins) {
     let hours = Math.trunc(mins / 60);
     let minutes = mins % 60;
