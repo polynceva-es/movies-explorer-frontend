@@ -161,6 +161,7 @@ function App() {
   function goToLogin() {
     navigate("/signin");
   }
+
   function onSubmitLogin(values, timeout) {
     login(values)
       .then(() => {
@@ -318,6 +319,7 @@ function App() {
           path="/signin"
           element={
             <Login
+              loggedIn={loggedIn}
               onSubmitLogin={onSubmitLogin}
               errorMessage={errorMessage}
               setErrorMessage={setErrorMessage}
@@ -328,6 +330,7 @@ function App() {
           path="/signup"
           element={
             <Register
+              loggedIn={loggedIn}
               onSubmitRegister={onSubmitRegister}
               errorMessage={errorMessage}
               setErrorMessage={setErrorMessage}

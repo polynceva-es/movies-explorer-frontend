@@ -1,16 +1,21 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import Form from "../../Form/Form";
 import FormCaption from "../../FormCaption/FormCaption";
 import useValidation from "../../../hooks/useValidation";
 
 function Login(props) {
   const { values, errors, onChange, resetValidation, isFormValid } = useValidation();
-  const { onSubmitLogin, errorMessage, setErrorMessage } = props;
+  const { loggedIn, onSubmitLogin, errorMessage, setErrorMessage } = props;
 
   React.useEffect(() => {
     setErrorMessage('');
     resetValidation({ email: "", password: "" });
   }, []);
+
+    if(loggedIn) {
+      return <Navigate to='/movies' replace />;
+    }
 
   function handleSubmitLogin(evt) {
     evt.preventDefault();

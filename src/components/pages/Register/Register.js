@@ -1,16 +1,27 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import Form from "../../Form/Form";
 import FormCaption from "../../FormCaption/FormCaption";
 import useValidation from "../../../hooks/useValidation";
 
 function Register(props) {
-  const { values, errors, onChange, resetValidation, isFormValid } = useValidation();
-  const { onSubmitRegister, errorMessage, setErrorMessage } = props;
+  const { values, errors, onChange, resetValidation, isFormValid } =
+    useValidation();
+  const {
+    loggedIn,
+    onSubmitRegister,
+    errorMessage,
+    setErrorMessage,
+  } = props;
 
   React.useEffect(() => {
-    setErrorMessage('');
+    setErrorMessage("");
     resetValidation({ name: "", email: "", password: "" });
   }, []);
+
+  if (loggedIn) {
+    return <Navigate to='/movies' replace />;
+  }
 
   function handleSubmitRegister(evt) {
     evt.preventDefault();
@@ -18,7 +29,8 @@ function Register(props) {
   }
 
   function getInputClassName(param) {
-    const inputClassName = `form__input ` + (errors[param] ? "form__input_error" : "");
+    const inputClassName =
+      `form__input ` + (errors[param] ? "form__input_error" : "");
     return inputClassName;
   }
 
@@ -36,7 +48,7 @@ function Register(props) {
             <label htmlFor="reg-name" className="form__label">
               Имя
               <input
-                className={getInputClassName('name')}
+                className={getInputClassName("name")}
                 id="reg-name"
                 name="name"
                 type="text"
@@ -52,7 +64,7 @@ function Register(props) {
             <label htmlFor="reg-email" className="form__label">
               E-mail
               <input
-                className={getInputClassName('email')}
+                className={getInputClassName("email")}
                 id="reg-email"
                 name="email"
                 type="email"
@@ -68,7 +80,7 @@ function Register(props) {
             <label htmlFor="reg-pass" className="form__label">
               Пароль
               <input
-                className={getInputClassName('password')}
+                className={getInputClassName("password")}
                 id="reg-pass"
                 name="password"
                 type="password"
