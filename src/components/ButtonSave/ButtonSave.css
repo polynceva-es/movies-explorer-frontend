@@ -10,4 +10,13 @@
   color: #000000;
   background-color: #F9F9F9;
   border-radius: 20px;
+  visibility: hidden;
+  transition: visibility .3s;
+  z-index: 10;
+}
+
+.btn-save:hover {
+  opacity: 0.8;
+  visibility: visible;
+  transition: visibility .3s;
 }
