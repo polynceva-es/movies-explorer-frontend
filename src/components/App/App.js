@@ -404,7 +404,7 @@ function App() {
             />
           }
         />
-        <Route path="*" element={<ProtectedRoute element={PageNotFound} />} />
+        <Route path="*" element={<PageNotFound/>} />
       </Routes>
     </CurrentUserContext.Provider>
   );
