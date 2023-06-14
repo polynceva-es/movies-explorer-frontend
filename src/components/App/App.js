@@ -38,7 +38,6 @@ function App() {
 
   function onClickLiked(movie, isLiked, setIsLiked) {
     const jwt = localStorage.getItem("token");
-    // const isMovieSaved = savedMovies.some((item) => item.movieId === movie.id);
     if (jwt) {
       if (isLiked) {
         deleteSaveMovie(movie._id, jwt)
@@ -63,9 +62,9 @@ function App() {
   }
 
   function loadSavedMovies(filters) {
-    setIsLoader(true);
     const jwt = localStorage.getItem("token");
     if (loggedIn && jwt) {
+      setIsLoader(true);
       getSaveMovies(jwt)
         .then((res) => {
           let filterMovies;
@@ -97,9 +96,9 @@ function App() {
   }
 
   function enrichMoviersFromLocalStorageWithLikes(moviesList) {
-    setIsLoader(true);
     const jwt = localStorage.getItem("token");
     if (loggedIn && jwt) {
+      setIsLoader(true);
       getSaveMovies(jwt)
         .then((savedMovies) => {
           const savedMoviesIndex = {};
@@ -120,9 +119,9 @@ function App() {
   }
 
   function tokenCheck() {
-    setIsLoader(true);
     const jwt = localStorage.getItem("token");
     if (jwt) {
+      setIsLoader(true);
       checkToken(jwt)
         .then((res) => {
           setCurrentUser(res);
@@ -225,9 +224,9 @@ function App() {
 
   function filterFilmList() {
     setErrorMessage("");
-    setIsLoader(true);
     const jwt = localStorage.getItem("token");
     if (jwt) {
+      setIsLoader(true);
       Promise.all([getMovieList(), getSaveMovies(jwt)])
         .then((promiseResult) => {
           const [movies, savedMovies] = promiseResult;
