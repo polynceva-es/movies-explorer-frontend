@@ -2,24 +2,43 @@ import React from "react";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 function SearchForm(props) {
+  const { values, onChange, isFormValid, onSubmitSearch } = props;
+  const buttonSearchClassName =
+    `search-form__submit-btn ` +
+    (!isFormValid ? "search-form__submit-btn_disable" : "");
+
   function handleSearch(evt) {
     evt.preventDefault();
-    console.log("search");
+    onSubmitSearch(values);
   }
+
+  React.useEffect(() => {
+    if (values.film) {
+      onSubmitSearch(values);
+    }
+  }, [values.shortFilm]);
+
   return (
     <section className="search-form">
-      <form>
+      <form onSubmit={handleSearch}>
         <div className="search-form__container">
-          <input className="search-form__input" placeholder="Фильм" required></input>
+          <input
+            className="search-form__input"
+            name="film"
+            value={values.film || ""}
+            placeholder="Фильм"
+            onChange={onChange}
+            required
+          ></input>
           <button
-            className="search-form__submit-btn"
+            className={buttonSearchClassName}
             type="submit"
-            onClick={handleSearch}
+            disabled={!isFormValid}
           >
             Найти
           </button>
         </div>
-        <FilterCheckbox />
+        <FilterCheckbox onChange={onChange} onSubmitSearch={onSubmitSearch} isFormValid={isFormValid} values={values}/>
       </form>
     </section>
   );

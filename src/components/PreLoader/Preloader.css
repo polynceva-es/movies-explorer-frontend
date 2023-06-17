@@ -40,11 +40,15 @@
 }
 
 .preloader {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     z-index: 10;
     padding: 20px;
+}
+
+.preloader_active {
+  display: flex;
 }
 
 .preloader__container {

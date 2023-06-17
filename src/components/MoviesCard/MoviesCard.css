@@ -42,7 +42,8 @@
   background-color: #000;
   cursor: pointer;
   display: block;
-  width: 100%;
+  width: 360px;
+  height: 201px;
   border-radius: 6px;
   object-fit: cover;
 }
@@ -83,14 +84,21 @@
   .movie-card {
     width: 339px;
   }
+  .movie-card__image {
+    width: 339px;
+    height: 190px;
+  }
+  .movie-card__figcaption {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 530px) {
   .movie-card {
     width: 300px;
   }
-
-  .movie-card__figcaption {
-    padding: 5px 0;
+  .movie-card__image {
+    width: 300px;
+    height: 168px;
   }
 }

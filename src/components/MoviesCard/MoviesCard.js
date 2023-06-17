@@ -2,29 +2,61 @@ import React, { useState } from "react";
 import ButtonSave from "../ButtonSave/ButtonSave";
 import ButtonIsLiked from "../ButtonIsLiked/ButtonIsLiked";
 import ButtonDelete from "../ButtonDelete/ButtonDelete";
-import image from "../../images/pic__COLOR_pic.jpg";
 
 function MoviesCard(props) {
-  const { nameRU, imageUrl, trailerLink, duration, page, isLikedProps } = props;
-const [isLiked, setIsLiked] = React.useState(isLikedProps);
-let button;
-if(page === "saved-movies") {
-  button = <ButtonDelete />
-} else if (page === "movies" && isLiked) {
-  button = <ButtonIsLiked />
-} else if (page === "movies" && !isLiked) {
-  button = <ButtonSave />
-};
+  const {
+    movie,
+    nameRU,
+    imageUrl,
+    trailerLink,
+    duration,
+    page,
+    onClickLiked,
+    defaultIsLiked
+  } = props;
+  const imageSRC = page === "saved-movies" ? imageUrl : `https://api.nomoreparties.co/${imageUrl}`;
+
+  const [isLiked, setIsLiked] = React.useState(defaultIsLiked);
+
+  React.useEffect(() => {
+    if (movie) {
+      if (movie._id) {
+        setIsLiked(true);
+      } else {
+        setIsLiked(false);
+      }
+    }
+  }, [movie]);
+
+  function getDuration(mins) {
+    let hours = Math.trunc(mins / 60);
+    let minutes = mins % 60;
+    return hours ? hours + "ч " + minutes + "м" : minutes + "м";
+  }
+
+  function handleClickLikedToggle() {
+    onClickLiked(movie, isLiked, setIsLiked);
+  }
+
+  let button;
+  if (page === "saved-movies") {
+    button = <ButtonDelete handleClickLikedToggle={handleClickLikedToggle} />;
+  } else if (page === "movies" && isLiked) {
+    button = <ButtonIsLiked handleClickLikedToggle={handleClickLikedToggle} />;
+  } else if (page === "movies" && !isLiked) {
+    button = <ButtonSave handleClickLikedToggle={handleClickLikedToggle} />;
+  }
+
   return (
-    <article className="movie-card" >
+    <article className="movie-card">
       {button}
       <figure className="movie-card__figure">
-        <a href={trailerLink} className="movie-card__link">
-          <img className="movie-card__image" src={image} alt="Кадр фильма" />
+        <a href={trailerLink} target="_blanck" className="movie-card__link">
+          <img className="movie-card__image" src={imageSRC} alt="Кадр фильма" />
         </a>
         <figcaption className="movie-card__figcaption">
-          <p className="movie-card__title">33 слова о дизайне</p>
-          <p className="movie-card__duration">1ч 17м</p>
+          <p className="movie-card__title">{nameRU}</p>
+          <p className="movie-card__duration">{getDuration(duration)}</p>
         </figcaption>
       </figure>
     </article>

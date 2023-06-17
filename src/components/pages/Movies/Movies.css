@@ -1,3 +1,15 @@
-.movies {
-  /* margin: 0 auto; */
+.not-found-message {
+  color: #A0A0A0;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 530px) {
+  .not-found-message {
+    font-size: 18px;
+    line-height: 22px;
+  }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { REG_NAME, REG_EMAIL } from "../utils/RegexConst";
 
 function useValidation() {
   const [values, setValues] = React.useState({});
@@ -6,8 +7,28 @@ function useValidation() {
   const [isFormValid, setIsFormValid] = React.useState(false);
 
   function onChange(evt) {
-    const errorMessage = evt.target.validationMessage;
-    const { name, value } = evt.target;
+    let errorMessage = evt.target.validationMessage;
+    const { name, type, checked } = evt.target;
+
+    let { value } = evt.target;
+    if(type === "checkbox") {
+      value = checked;
+    }
+    if (errorMessage === "") {
+      let isInputValid;
+      if(name === "name" && value !== undefined ) {
+        isInputValid = value.match(REG_NAME);
+        if(!isInputValid) {
+          errorMessage = "Поле должно содержать только латиницу, кирилицу, пробел или дефис";
+        }
+      } else if (name === "email" && value !== undefined ) {
+        isInputValid = value.match(REG_EMAIL);
+        if(!isInputValid) {
+          errorMessage = "Не валидный адрес электронной почты";
+        }
+      }
+    }
+
     const newValues = {...values, [name]: value};
     const newErrors = {...errors, [name]: errorMessage};
     const formValid = evt.target.closest('form').checkValidity();
@@ -27,7 +48,8 @@ function useValidation() {
     onChange,
     resetValidation,
     isFormValid,
-    setIsFormValid
+    setIsFormValid,
+    setValues
   };
 }
 

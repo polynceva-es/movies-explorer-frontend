@@ -15,17 +15,17 @@ function BurgerMenu(props) {
         <BurgerButton isMenuOpen={isMenuOpen} handleMenuOpen={handleMenuOpen} />
         <ul className="menu__list">
           <li className="menu__item">
-            <NavLink to="/" className={navLinkClassName}>
+            <NavLink to="/" className={navLinkClassName} onClick={handleMenuOpen}>
               Главная
             </NavLink>
           </li>
           <li className="menu__item">
-            <NavLink to="/movies" className={navLinkClassName}>
+            <NavLink to="/movies" className={navLinkClassName} onClick={handleMenuOpen}>
               Фильмы
             </NavLink>
           </li>
           <li className="menu__item">
-            <NavLink to="/saved-movies" className={navLinkClassName}>
+            <NavLink to="/saved-movies" className={navLinkClassName} onClick={handleMenuOpen}>
               Сохраненные фильмы
             </NavLink>
           </li>
