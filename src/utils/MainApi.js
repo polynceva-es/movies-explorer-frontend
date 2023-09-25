@@ -1,4 +1,5 @@
-const BASE_URL = 'https://api.polyntseva.diplom.nomoredomains.rocks'; //my adress
+const {PUBLIC_URL} = process.env;
+const BASE_URL = `${PUBLIC_URL}/api/`; //my adress
 const HEADERS = {'Content-Type': 'application/json'};
 
 function getResponseData(res) {
